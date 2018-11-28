@@ -2,6 +2,8 @@
 /* Star */
 #define _HELPER_HEAD_
 #pragma once
+#include <tchar.h>
+#include <debugapi.h>
 // 公共帮助
 #if !defined(_DEBUG)
 	# define DebugMsg(...) do { TCHAR debugMsg[MAX_PATH]; _sntprintf_s(debugMsg, _countof(debugMsg), _TRUNCATE, ##__VA_ARGS__); OutputDebugString(debugMsg); } while(0)

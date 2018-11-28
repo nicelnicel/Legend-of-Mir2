@@ -23,7 +23,7 @@ namespace Cry
 				SocketData::CmdResponse Resp;
 				if (!Req.ParsePartialFromArray(pData, uSize))
 				{
-					return false;
+					throw std::string("解析数据包出现严重错误");
 				}
 				Resp.clear_status();
 				Resp.set_status(false);

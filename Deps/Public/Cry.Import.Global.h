@@ -16,8 +16,10 @@
 #pragma warning( disable: 4477 ) // warning C4477: “_snprintf_s”: 格式字符串“%?”需要类型“xxx”的参数，但可变参数 1 拥有了类型“xxx”
 
 #include <SDKDDKVer.h>
+
 // Windows 头文件
 #include <windows.h>
+
 // C 运行时头文件
 #include <cstdint>
 #include <stdio.h>
@@ -25,9 +27,11 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+
 // C++ 运行时头文件
 #include <iostream>
- 
+#include <exception>
+
 // 公共帮助头文件
 #include <Helper>
 

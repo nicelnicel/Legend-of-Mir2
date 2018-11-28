@@ -1,4 +1,4 @@
-#include <Global>
+ï»¿#include <Global>
 #include <InterProcess/Cry.Signal.Client.h>
 namespace Cry
 {
@@ -17,7 +17,7 @@ namespace Cry
 			{
 				if (!m_Service || pData->length() < HeadSize)
 				{
-					DLOG_TRACE << "Recv DataSize < HeardSize Error:" << m_Conn->remote_addr();
+					DLOG_TRACE << "ä¸å®Œæ•´çš„æ•°æ®åŒ…";
 					return false;
 				}
 				uSize = pData->ReadInt32();
@@ -25,14 +25,22 @@ namespace Cry
 				uMsg = pData->ReadInt32();
 				if (pData->size() < uSize)
 				{
-					DLOG_TRACE << "Recv DataSize < MessageSize:" << m_Conn->remote_addr();
+					DLOG_TRACE << "æ— æ³•è§£æžæ•°æ®åŒ…";
 					return false;
 				}
 				if (Action::lPUnknownInterfaceEx lpListener = m_Service->GetObjectInterface()->Get(0); (lpListener == nullptr ? lpListener = m_Service->GetObjectInterface()->Get("123") : lpListener))
 				{
-					if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+					try
 					{
-						DLOG_TRACE << "Exec Error:" << m_Conn->remote_addr();
+						if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+						{
+							DLOG_TRACE << "å‘é€æ•°æ®å¤±è´¥";
+							return false;
+						}
+					}
+					catch (std::exception & e)
+					{
+						DebugMsg("%s\n", e.what());
 						return false;
 					}
 				}
@@ -99,7 +107,7 @@ namespace Cry
 			{
 				if (this->AddWork(Buffer_Name, std::make_shared<Work>(this, Conn, Conn->loop())))
 				{
-					DebugMsg("Óë·þÎñÆ÷Á¬½Ó³É¹¦:%s\n", Conn->remote_addr().c_str());
+					DebugMsg("ä¸ŽæœåŠ¡å™¨è¿žæŽ¥æˆåŠŸ:%s\n", Conn->remote_addr().c_str());
 					//Conn->Send("123");
 				}
 				else
@@ -111,7 +119,7 @@ namespace Cry
 			{
 				if (this->DelWork(Buffer_Name))
 				{
-					DebugMsg("Óë·þÎñÆ÷¶Ï¿ªÁ¬½Ó:%s\n", Conn->remote_addr().c_str());
+					DebugMsg("ä¸ŽæœåŠ¡å™¨æ–­å¼€è¿žæŽ¥:%s\n", Conn->remote_addr().c_str());
 				}
 			}
 		}
