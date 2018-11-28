@@ -1,4 +1,4 @@
-#include <Standard>
+#include <Global>
 #include <ServiceInterface/Cry.Signal.Interface.h>
 namespace Cry
 {

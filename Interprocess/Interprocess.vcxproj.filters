@@ -58,6 +58,9 @@
     <Filter Include="头文件\Action\Database">
       <UniqueIdentifier>{e1014337-9290-402d-9f43-4bc1d6a999af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Utility">
+      <UniqueIdentifier>{ef0df2de-a1f6-4051-b652-f7caaffc2335}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interface\AnyFrame.hpp">
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h">
       <Filter>头文件\InterProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="Cry.Utility.Helper.hpp">
+      <Filter>头文件\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
