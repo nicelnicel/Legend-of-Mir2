@@ -69,9 +69,6 @@
     <ClInclude Include="Entrance.h">
       <Filter>头文件\Entrance</Filter>
     </ClInclude>
-    <ClInclude Include="..\Deps\Public\Standard.h">
-      <Filter>头文件\Public</Filter>
-    </ClInclude>
     <ClInclude Include="..\Deps\Public\Cry.Import.Action.h">
       <Filter>头文件\Action\Import</Filter>
     </ClInclude>
@@ -95,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="Cry.Utility.Helper.hpp">
       <Filter>头文件\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Cry.Import.Global.h">
+      <Filter>头文件\Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

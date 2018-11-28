@@ -75,9 +75,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Deps\Public\Standard.h">
-      <Filter>头文件\Public</Filter>
-    </ClInclude>
     <ClInclude Include="Entrance.h">
       <Filter>头文件\Entrance</Filter>
     </ClInclude>
@@ -113,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h">
       <Filter>头文件\InterProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Cry.Import.Global.h">
+      <Filter>头文件\Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

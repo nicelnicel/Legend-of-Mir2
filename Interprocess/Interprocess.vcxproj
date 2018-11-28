@@ -192,7 +192,7 @@
     <ClInclude Include="..\Deps\InterProcess\Import\Cry.Proto.hpp" />
     <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h" />
     <ClInclude Include="..\Deps\Public\Cry.Import.Action.h" />
-    <ClInclude Include="..\Deps\Public\Standard.h" />
+    <ClInclude Include="..\Deps\Public\Cry.Import.Global.h" />
     <ClInclude Include="Cry.Utility.Helper.hpp" />
     <ClInclude Include="Entrance.h" />
     <CustomBuild Include="Interprocess\Cry.Signal.Service.h">
