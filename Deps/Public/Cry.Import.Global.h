@@ -27,12 +27,9 @@
 #include <tchar.h>
 // C++ 运行时头文件
 #include <iostream>
-// 公共库
-#if !defined(_DEBUG)
-	#define DebugMsg(...) do { TCHAR debugMsg[MAX_PATH]; _sntprintf_s(debugMsg, _countof(debugMsg), _TRUNCATE, ##__VA_ARGS__); OutputDebugString(debugMsg); } while(0)
-#else
-	#define DebugMsg(...) do { TCHAR debugMsg[MAX_PATH]; _sntprintf_s(debugMsg, _countof(debugMsg), _TRUNCATE, ##__VA_ARGS__); OutputDebugString(debugMsg); } while(0)
-#endif
+ 
+// 公共帮助头文件
+#include <Helper>
 
 namespace Cry
 {
@@ -53,12 +50,12 @@ namespace Cry
 	#define Buffer_Name TEXT("Interprocess.Message.Queue")
 	#define Buffer_Size 1024
 #endif
+
+// 未归类的宏
 #define HeadSize (sizeof(uint32_t) + sizeof(uint32_t))
 #define TYPETEXT(x) TEXT(#x)
 
-// 读写内存
-#define CryWrite(t, x) *(t*)(x)
-#define CryRead(t, x)  *(t*)(x)
+
 #if !defined(_USRDLL)
 #ifdef _M_IX86
 # pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")

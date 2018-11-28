@@ -23,7 +23,7 @@ int32_t CryEntrance::Run(HINSTANCE hInstance, int nCmdCount, Cry::Signal::Networ
 	if (Cry::Kernel::Module::GetModuleFullPath(hInstance, lpFilename[0]))
 	{
 		QApplication a(nCmdCount, argv);
-		qRegisterMetaType<uint32_t>("uint32_t");
+		MetaType(uint32_t);
 		//qRegisterMetaType<std::string>("std::string");
 		m_Windwos = std::move(Service->SetWindowsInterface(std::make_shared<QWindows::FirstLication>(Service, nullptr)));
 		this->show();

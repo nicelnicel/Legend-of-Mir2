@@ -1,4 +1,4 @@
-﻿#include <Standard>
+﻿#include <Global>
 #include <Entrance.h>
 #include <InterProcess/Cry.Signal.Client.h>
 #include <Import/Cry.Glog.hpp>
