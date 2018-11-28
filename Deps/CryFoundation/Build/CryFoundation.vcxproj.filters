@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="头文件\Text">
+      <UniqueIdentifier>{9008c041-4398-4487-8e6f-9cb5f386e100}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Text">
+      <UniqueIdentifier>{f3b989bf-87a9-461d-9a84-af9cd72e516e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Core">
+      <UniqueIdentifier>{824345bf-12a2-4689-9ad1-00b2f26df097}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\Core">
+      <UniqueIdentifier>{8d3c0db1-702b-476b-ae20-f94d6edcfb33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Kernel">
+      <UniqueIdentifier>{ecb858d8-5d64-4bf8-8ebe-c5cc425bd623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Kernel">
+      <UniqueIdentifier>{d2ef9b64-2f37-48a3-8bf6-6b5b41f5dd84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Kernel\Output">
+      <UniqueIdentifier>{e55c7e9b-4f3d-410a-9896-28879d6901fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Kernel\Output">
+      <UniqueIdentifier>{b9144137-6bbc-486a-9dbc-a9fe595b094b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Kernel\Injection">
+      <UniqueIdentifier>{ad425f86-e2f6-4145-bc97-cac37a7263a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Kernel\Injection">
+      <UniqueIdentifier>{d17ae96d-d53f-482b-be0c-b0b599b82f25}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\Foundation.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Ascii.hpp">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\StringTrim.h">
+      <Filter>头文件\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Module.h">
+      <Filter>头文件\Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Output\Output.h">
+      <Filter>头文件\Kernel\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Kernel.h">
+      <Filter>头文件\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Injection\Message.h">
+      <Filter>头文件\Kernel\Injection</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\Ascii.cpp">
+      <Filter>源文件\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\StringTrim.cpp">
+      <Filter>源文件\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Module.cpp">
+      <Filter>源文件\Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Output\Output.cpp">
+      <Filter>源文件\Kernel\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Injection\Message.cpp">
+      <Filter>源文件\Kernel\Injection</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

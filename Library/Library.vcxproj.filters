@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Entrance">
+      <UniqueIdentifier>{fbf62002-7006-4072-a605-bcc825c802cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Import">
+      <UniqueIdentifier>{cc58a76e-e9ab-447c-8379-c7ce8e438c6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Public">
+      <UniqueIdentifier>{15a8d77b-3ff4-4e7e-9002-bbc2281a39c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Entrance">
+      <UniqueIdentifier>{70bda2aa-4de3-4aa7-b6ab-4a6755151950}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Import">
+      <UniqueIdentifier>{a46c202c-cb5e-4281-8106-1b9abdd81c80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Entrance\Export">
+      <UniqueIdentifier>{078c509e-d014-40ac-9009-e20044281c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\InterProcess">
+      <UniqueIdentifier>{f5bd3ee2-8ace-4c30-b779-b9cc932e3cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\InterProcess">
+      <UniqueIdentifier>{c75c21e7-2aa5-4973-a18a-a7d0e8e07e2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\InterProcess\Import">
+      <UniqueIdentifier>{d7b8ce38-4be5-4ca8-bc44-93a4f88fe949}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Database">
+      <UniqueIdentifier>{91641358-0da9-46d0-b9e3-a451c03c3794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Action">
+      <UniqueIdentifier>{addef801-1f85-40d3-8578-fa412b3fa6cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Action\Database">
+      <UniqueIdentifier>{331c3f35-ffb0-4b39-845c-774c7455bfea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Action\Import">
+      <UniqueIdentifier>{a501e9f2-bc7a-4f01-acf2-efffdd43c9f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Action">
+      <UniqueIdentifier>{63a4a4e7-9eaa-43bc-8cb4-9e8e0f775f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Game">
+      <UniqueIdentifier>{0c33d75a-ca63-4c32-bbfc-6cfc789c39ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Game">
+      <UniqueIdentifier>{d4781c8c-3fc2-40d6-8a82-1a634c2b2405}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Game\Initialize">
+      <UniqueIdentifier>{08b01e5b-cbec-46e0-a68d-b05c64b69825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Game\Initialize">
+      <UniqueIdentifier>{18b6b579-2063-45af-be73-1e9eea03123b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Game\Utility">
+      <UniqueIdentifier>{51680932-e79c-493f-b19e-10e0343e39d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Game\Utility">
+      <UniqueIdentifier>{84eacc4c-86b2-4b3a-88e5-e55c13dbca75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Deps\Public\Standard.h">
+      <Filter>头文件\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Entrance.h">
+      <Filter>头文件\Entrance</Filter>
+    </ClInclude>
+    <ClInclude Include="InterProcess\Cry.Signal.Client.h">
+      <Filter>头文件\InterProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Import\Cry.Event.hpp">
+      <Filter>源文件\InterProcess\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Import\Cry.Glog.hpp">
+      <Filter>源文件\InterProcess\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Import\Cry.Proto.hpp">
+      <Filter>源文件\InterProcess\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Cry.Import.Action.h">
+      <Filter>头文件\Action\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Action\Import\Cry.IAction.hpp">
+      <Filter>头文件\Action\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Cry.Game.Interface.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Initialize\Cry.Game.Initialize.h">
+      <Filter>头文件\Game\Initialize</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Utility\Cry.Game.Utility.h">
+      <Filter>头文件\Game\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Action\Cry.Action.Interface.h">
+      <Filter>头文件\Action\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h">
+      <Filter>头文件\InterProcess</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entrance.cpp">
+      <Filter>源文件\Entrance</Filter>
+    </ClCompile>
+    <ClCompile Include="InterProcess\Cry.Signal.Client.cpp">
+      <Filter>源文件\InterProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Cry.Game.Interface.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Initialize\Cry.Game.Initialize.cpp">
+      <Filter>源文件\Game\Initialize</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Utility\Cry.Game.Utility.cpp">
+      <Filter>源文件\Game\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Deps\InterProcess\Action\Cry.Action.Interface.cpp">
+      <Filter>源文件\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.cpp">
+      <Filter>源文件\InterProcess</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Deps\Public\Source.def">
+      <Filter>头文件\Entrance\Export</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Library.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,65 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{0526D80F-CF86-358E-B9F8-8AC8EA44D375}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49} = {14D0DBB0-6630-323A-9563-4F0D53E59E49}
+		{A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15} = {A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INSTALL", "INSTALL.vcxproj", "{008AA524-47E1-329E-9E3D-FC498CDD8B0E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0526D80F-CF86-358E-B9F8-8AC8EA44D375} = {0526D80F-CF86-358E-B9F8-8AC8EA44D375}
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49} = {14D0DBB0-6630-323A-9563-4F0D53E59E49}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PACKAGE", "PACKAGE.vcxproj", "{3FBE0A8E-3078-36FB-9C77-A9048FB4623B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0526D80F-CF86-358E-B9F8-8AC8EA44D375} = {0526D80F-CF86-358E-B9F8-8AC8EA44D375}
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49} = {14D0DBB0-6630-323A-9563-4F0D53E59E49}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RUN_TESTS", "RUN_TESTS.vcxproj", "{0032FDC0-5BCA-31BF-B683-0A489334EB69}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49} = {14D0DBB0-6630-323A-9563-4F0D53E59E49}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{14D0DBB0-6630-323A-9563-4F0D53E59E49}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glog", "glog.vcxproj", "{A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15}"
+	ProjectSection(ProjectDependencies) = postProject
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49} = {14D0DBB0-6630-323A-9563-4F0D53E59E49}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0526D80F-CF86-358E-B9F8-8AC8EA44D375}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0526D80F-CF86-358E-B9F8-8AC8EA44D375}.Debug|Win32.Build.0 = Debug|Win32
+		{0526D80F-CF86-358E-B9F8-8AC8EA44D375}.Release|Win32.ActiveCfg = Release|Win32
+		{0526D80F-CF86-358E-B9F8-8AC8EA44D375}.Release|Win32.Build.0 = Release|Win32
+		{008AA524-47E1-329E-9E3D-FC498CDD8B0E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{008AA524-47E1-329E-9E3D-FC498CDD8B0E}.Release|Win32.ActiveCfg = Release|Win32
+		{3FBE0A8E-3078-36FB-9C77-A9048FB4623B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3FBE0A8E-3078-36FB-9C77-A9048FB4623B}.Release|Win32.ActiveCfg = Release|Win32
+		{0032FDC0-5BCA-31BF-B683-0A489334EB69}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0032FDC0-5BCA-31BF-B683-0A489334EB69}.Release|Win32.ActiveCfg = Release|Win32
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49}.Debug|Win32.ActiveCfg = Debug|Win32
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49}.Debug|Win32.Build.0 = Debug|Win32
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49}.Release|Win32.ActiveCfg = Release|Win32
+		{14D0DBB0-6630-323A-9563-4F0D53E59E49}.Release|Win32.Build.0 = Release|Win32
+		{A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15}.Debug|Win32.Build.0 = Debug|Win32
+		{A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15}.Release|Win32.ActiveCfg = Release|Win32
+		{A57BBCFD-73A2-32EA-8CC6-5C8F031C2F15}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48BBA163-9041-3859-B6EB-4048752E4870}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

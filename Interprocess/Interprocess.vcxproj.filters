@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\GeneratedFiles">
+      <UniqueIdentifier>{c25fbcdc-d730-457b-9726-9137774e8c7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Entrance">
+      <UniqueIdentifier>{02fa894a-8397-49ba-857f-908ffaf0037f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Public">
+      <UniqueIdentifier>{53f3d51e-01bc-4c15-9281-f22513dd59ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Interface">
+      <UniqueIdentifier>{ec7064e0-895b-4918-bc8b-dca791b25883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Entrance">
+      <UniqueIdentifier>{1b382406-9919-4640-a0bb-90a144ec2551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Entrance\Export">
+      <UniqueIdentifier>{048cfbab-1c5b-43fd-b129-0b1f697b09b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Interprocess">
+      <UniqueIdentifier>{444e2a7c-5f19-4b58-958d-000a6dda8e29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\InterProcess">
+      <UniqueIdentifier>{6feb5d91-845d-4570-bda8-18da502af5c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\InterProcess\Import">
+      <UniqueIdentifier>{2adc6a94-d4d0-4ef7-92ab-6d1bb005416a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\InterProcess\Queue">
+      <UniqueIdentifier>{19ce0d12-a8e2-4f81-8edb-43c711c08bee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Action">
+      <UniqueIdentifier>{bacecc3b-55b8-4fb2-b3b7-97437cc8d629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Action\Import">
+      <UniqueIdentifier>{ca53ebe4-03ee-4655-b3bb-3f5640ccd9c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Action">
+      <UniqueIdentifier>{71850aed-8e8a-4ac5-b085-337bc801ab21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Action\Database">
+      <UniqueIdentifier>{91e8c283-50ce-4b99-ae1c-9ca9bd00d206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Action\Database">
+      <UniqueIdentifier>{e1014337-9290-402d-9f43-4bc1d6a999af}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Interface\AnyFrame.hpp">
+      <Filter>头文件\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Entrance.h">
+      <Filter>头文件\Entrance</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Standard.h">
+      <Filter>头文件\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Cry.Import.Action.h">
+      <Filter>头文件\Action\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Import\Cry.Event.hpp">
+      <Filter>头文件\InterProcess\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Import\Cry.Glog.hpp">
+      <Filter>头文件\InterProcess\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Import\Cry.Proto.hpp">
+      <Filter>头文件\InterProcess\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Action\Import\Cry.IAction.hpp">
+      <Filter>头文件\Action\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\Action\Cry.Action.Interface.h">
+      <Filter>头文件\Action\Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h">
+      <Filter>头文件\InterProcess</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entrance.cpp">
+      <Filter>源文件\Entrance</Filter>
+    </ClCompile>
+    <ClCompile Include="Interprocess\Cry.Signal.Service.cpp">
+      <Filter>源文件\Interprocess</Filter>
+    </ClCompile>
+    <ClCompile Include="Cry.FirstLication.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Cry.FirstLication.Notify.cpp">
+      <Filter>源文件\GeneratedFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Deps\InterProcess\Action\Cry.Action.Interface.cpp">
+      <Filter>源文件\Action\Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.cpp">
+      <Filter>源文件\Interprocess</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Cry.Signal.Service.Notify.cpp">
+      <Filter>源文件\GeneratedFiles</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Cry.FirstLication.h">
+      <Filter>头文件</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Interprocess\Cry.Signal.Service.h">
+      <Filter>头文件\InterProcess</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Interprocess.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\demangle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\raw_logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\symbolize.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\utilities.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\vlog_is_on.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\windows\port.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\signalhandler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\vsprojects\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\vsprojects\glog\logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\vsprojects\glog\raw_logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\vsprojects\glog\stl_logging.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\vsprojects\glog\vlog_is_on.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\glog\log_severity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\base\commandlineflags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\base\googleinit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\base\mutex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\demangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\symbolize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\utilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\windows\port.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{1B9ED5AA-EED2-3B08-8DB5-DB95A3B7CF0B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CD5867F8-C6C8-3898-BC55-FF56D445EB55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

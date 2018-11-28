@@ -1,0 +1,7 @@
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/protoc.dir
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/libprotobuf-lite.dir
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/libprotoc.dir
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/libprotobuf.dir
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/INSTALL.dir
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/ALL_BUILD.dir
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/ZERO_CHECK.dir

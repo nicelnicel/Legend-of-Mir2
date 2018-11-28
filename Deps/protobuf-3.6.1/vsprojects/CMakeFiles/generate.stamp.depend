@@ -1,0 +1,45 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeDependentOption.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/GNUInstallDirs.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/SelectLibraryConfigurations.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/CMakeLists.txt
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/extract_includes.bat.in
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/install.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/libprotobuf-lite.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/libprotobuf.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/libprotoc.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protobuf-config-version.cmake.in
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protobuf-config.cmake.in
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protobuf-lite.pc.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protobuf-module.cmake.in
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protobuf-options.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protobuf.pc.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/cmake/protoc.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/3.13.0/CMakeCCompiler.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/3.13.0/CMakeCXXCompiler.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/3.13.0/CMakeRCCompiler.cmake
+F:/My Source Program/Legend of Mir2/Deps/protobuf-3.6.1/vsprojects/CMakeFiles/3.13.0/CMakeSystem.cmake

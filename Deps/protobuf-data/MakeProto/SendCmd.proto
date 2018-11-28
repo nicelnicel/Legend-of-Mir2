@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package SocketData;
+
+message CmdRequest
+{
+string Content				= 1;
+}
+
+message CmdResponse
+{
+bool Status					= 1;
+}

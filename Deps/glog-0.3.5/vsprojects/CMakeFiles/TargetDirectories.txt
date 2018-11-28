@@ -1,0 +1,6 @@
+F:/My Source Program/Legend of Mir2/Deps/glog-0.3.5/vsprojects/CMakeFiles/glog.dir
+F:/My Source Program/Legend of Mir2/Deps/glog-0.3.5/vsprojects/CMakeFiles/PACKAGE.dir
+F:/My Source Program/Legend of Mir2/Deps/glog-0.3.5/vsprojects/CMakeFiles/INSTALL.dir
+F:/My Source Program/Legend of Mir2/Deps/glog-0.3.5/vsprojects/CMakeFiles/RUN_TESTS.dir
+F:/My Source Program/Legend of Mir2/Deps/glog-0.3.5/vsprojects/CMakeFiles/ALL_BUILD.dir
+F:/My Source Program/Legend of Mir2/Deps/glog-0.3.5/vsprojects/CMakeFiles/ZERO_CHECK.dir

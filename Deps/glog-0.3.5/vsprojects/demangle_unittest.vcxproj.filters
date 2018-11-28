@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\src\demangle_unittest.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\My Source Program\Legend of Mir2\Deps\glog-0.3.5\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CD5867F8-C6C8-3898-BC55-FF56D445EB55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

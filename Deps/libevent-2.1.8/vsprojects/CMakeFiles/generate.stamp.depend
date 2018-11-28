@@ -1,0 +1,53 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CTest.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CTestTargets.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CTestUseLaunchers.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckCCompilerFlag.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckCSourceRuns.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckCXXSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckIncludeFiles.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckStructHasMember.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/CheckVariableExists.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Compiler/MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/DartConfiguration.tcl.in
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindPythonInterp.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/FindZLIB.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.13/Modules/SelectLibraryConfigurations.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/CMakeLists.txt
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/AddCompilerFlags.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/CheckFileOffsetBits.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/CheckFunctionExistsEx.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/CheckFunctionKeywords.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/CheckPrototypeDefinition.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/CheckWaitpidSupportWNOWAIT.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/FindGit.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/LibeventConfig.cmake.in
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/LibeventConfigBuildTree.cmake.in
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/LibeventConfigVersion.cmake.in
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/cmake/VersionViaGit.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/evconfig-private.h.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/event-config.h.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/vsprojects/CMakeFiles/3.13.0/CMakeCCompiler.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/vsprojects/CMakeFiles/3.13.0/CMakeRCCompiler.cmake
+F:/My Source Program/Legend of Mir2/Deps/libevent-2.1.8/vsprojects/CMakeFiles/3.13.0/CMakeSystem.cmake
