@@ -44,6 +44,11 @@ namespace Cry
 						return false;
 					}
 				}
+				else
+				{
+					DLOG_TRACE << "Exec lpListener = nullptr:" << m_Conn->remote_addr();
+					return false;
+				}
 				pData->Skip(uSize);
 				uSize = 0;
 			}

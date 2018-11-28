@@ -33,9 +33,17 @@ namespace Cry
 				}
 				if (Action::lPUnknownInterfaceEx lpListener = m_Service->GetObjectInterface()->Get(0); (lpListener == nullptr ? lpListener = m_Service->GetObjectInterface()->Get("FirstLication") : lpListener))
 				{
-					if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+					try
 					{
-						DLOG_TRACE << "Exec Error:" << m_Conn->remote_addr();
+						if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+						{
+							DLOG_TRACE << "·¢ËÍÊý¾ÝÊ§°Ü";
+							return false;
+						}
+					}
+					catch (std::exception & e)
+					{
+						DebugMsg("%s\n", e.what());
 						return false;
 					}
 				}
