@@ -95,7 +95,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\;..\;..\Public;..\Deps\Public;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;..\Deps\boost_1_68_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\Deps\Public;..\Deps\Public\Utility;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -137,7 +137,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>.\;..\;..\Public;..\Deps\Public;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;..\Deps\boost_1_68_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\Deps\Public;..\Deps\Public\Utility;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtWinExtras;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ControlFlowGuard>Guard</ControlFlowGuard>
@@ -193,7 +193,7 @@
     <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h" />
     <ClInclude Include="..\Deps\Public\Cry.Import.Action.h" />
     <ClInclude Include="..\Deps\Public\Cry.Import.Global.h" />
-    <ClInclude Include="Cry.Utility.Helper.hpp" />
+    <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp" />
     <ClInclude Include="Entrance.h" />
     <CustomBuild Include="Interprocess\Cry.Signal.Service.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\%(Filename).Notify.cpp"</Command>

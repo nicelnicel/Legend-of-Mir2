@@ -90,11 +90,11 @@
     <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h">
       <Filter>头文件\InterProcess</Filter>
     </ClInclude>
-    <ClInclude Include="Cry.Utility.Helper.hpp">
-      <Filter>头文件\Utility</Filter>
-    </ClInclude>
     <ClInclude Include="..\Deps\Public\Cry.Import.Global.h">
       <Filter>头文件\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp">
+      <Filter>头文件\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

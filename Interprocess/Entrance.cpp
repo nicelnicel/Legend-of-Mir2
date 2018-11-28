@@ -1,4 +1,5 @@
 ﻿#include <Global>
+#include <Helper>
 #include <Cry.FirstLication.h>
 #include <Entrance.h>
 #include <QtPlugin>
