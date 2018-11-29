@@ -126,6 +126,9 @@
     <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp">
       <Filter>头文件\Public\Utility</Filter>
     </ClInclude>
+    <ClInclude Include="..\Deps\Public\Cry.Import.Port.h">
+      <Filter>头文件\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entrance.cpp">

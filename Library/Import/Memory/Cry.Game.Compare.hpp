@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>
+#include <Global>
 #include <Helper>
 #include <StringXor.h>
 namespace Cry
@@ -15,27 +15,27 @@ namespace Cry
 			/// 修复问题：特征码末尾一个结束符'\0'导致内存搜索失败的情况。
 			/// 优化性能：跳过int3断点。
 			/// 优化视觉：读内存以宏代替，编译器会自动展开。
-			static uint32_t SearchMemory(const uint32_t uBeginAddress, const uint32_t uEndAddress, std::string lpszMasks, uint32_t uPos)
+			static u32 SearchMemory(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos)
 			{
 				const char*		pbSearchBuffer	= lpszMasks.data();
-				uint8_t*		uResult			= 0;
-				uint32_t		Pos				= 0;
+				u8*				uResult			= 0;
+				u32				Pos				= 0;
 				try
 				{
-					for (uint8_t * pCur = reinterpret_cast<uint8_t*>(uBeginAddress); pCur <reinterpret_cast<uint8_t*>(uEndAddress); ++pCur)
+					for (u8 * pCur = reinterpret_cast<u8*>(uBeginAddress); pCur <reinterpret_cast<u8*>(uEndAddress); ++pCur)
 					{
-						if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((uint8_t)'\?') || *pCur == getByte(pbSearchBuffer))
+						if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
 						{
 							if (!uResult)
 							{
 								uResult = pCur;
 							}
 
-							if (pbSearchBuffer += (CryVirtualQueryMemory(uint16_t, pbSearchBuffer) == ((uint16_t)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((uint8_t)'\?')) ? 3 : 2; (!*pbSearchBuffer) || (!*(pbSearchBuffer - 1)) || (!*(pbSearchBuffer + 1)))
+							if (pbSearchBuffer += (CryVirtualQueryMemory(u16, pbSearchBuffer) == ((u16)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((u8)'\?')) ? 3 : 2; (!*pbSearchBuffer) || (!*(pbSearchBuffer - 1)) || (!*(pbSearchBuffer + 1)))
 							{
 								if (++Pos == uPos)
 								{
-									return reinterpret_cast<uint32_t>(uResult);
+									return reinterpret_cast<u32>(uResult);
 								}
 								else
 								{
@@ -57,7 +57,7 @@ namespace Cry
 				}
 				return 0;
 			}
-			static uint32_t SearchMemoryEx(const uint32_t uBeginAddress, const uint32_t uEndAddress, std::string lpszMasks, uint32_t uPos = 1)
+			static u32 SearchMemoryEx(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos = 1)
 			{
 				return SearchMemory(uBeginAddress, uEndAddress, Cry::Text::Xor::Operate(lpszMasks), uPos);
 			}

@@ -12,6 +12,10 @@ namespace Cry
 
 		};
 	};
+	namespace Base
+	{
+		class DataBase;
+	}
 };
 class CryEntrance
 {
@@ -42,5 +46,6 @@ private:
 	bool														m_Status;
 private:
 	std::shared_ptr<Cry::Signal::NetworkEngineService>			m_Service;
+	std::shared_ptr<Cry::Base::DataBase>						m_DataBase;
 };
 static CryEntrance theapp;

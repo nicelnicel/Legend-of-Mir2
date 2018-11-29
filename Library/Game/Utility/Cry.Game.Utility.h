@@ -1,6 +1,5 @@
 #pragma once
 #include <Action/Import/Cry.IAction.hpp>
-#include <Import/Memory/Cry.Game.Compare.hpp>
 namespace Cry
 {
 	namespace Signal

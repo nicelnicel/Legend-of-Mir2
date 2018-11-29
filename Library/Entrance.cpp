@@ -4,21 +4,25 @@
 #include <Import/Cry.Glog.hpp>
 #include <Import/Cry.Event.hpp>
 #include <Import/Cry.Proto.hpp>
+#include <Game/Initialize/Cry.Game.Initialize.h>
 #include <Game/Utility/Cry.Game.Utility.h>
 #include <Import/Memory/Cry.Game.Compare.hpp>
 #include <StringXor.h>
 bool CryEntrance::InitObjectInterface()
 {
 	bool Sucess = true;
-
+	Sucess &= m_DataBase->Initialize();
 	Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility);
 	return Sucess;
 }
 bool CryEntrance::InitializeNetworkService()
 {
-	if (m_Service = std::make_shared<Cry::Signal::NetworkEngineService>("127.0.0.1:9999", "Inter.Process.Client"); this->InitObjectInterface())
+	if (m_DataBase = std::make_shared<Cry::Base::DataBase>(); this->InitObjectInterface())
 	{
-		return m_Service->CreateService();
+		if (m_Service = std::make_shared<Cry::Signal::NetworkEngineService>("127.0.0.1:9999", "Inter.Process.Client"); m_Service->CreateService())
+		{
+			return true;
+		}
 	}
 	return false;
 }

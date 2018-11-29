@@ -21,7 +21,6 @@
 #include <windows.h>
 
 // C 运行时头文件
-#include <cstdint>
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
@@ -33,6 +32,7 @@
 #include <exception>
 
 // 公共帮助头文件
+#include <Port>
 #include <Helper>
 
 namespace Cry
@@ -43,11 +43,6 @@ namespace Cry
 	};
 };
 // 在此处引用程序需要的其他标头
-// Boost 排除依赖项
-#if !defined(BOOST_DATE_TIME_NO_LIB)
-	#define BOOST_DATE_TIME_NO_LIB
-	//#define BOOST_INTERPROCESS_SHARED_DIR_PATH TEXT(Cry::Kernel::Value::lpFiledir)
-#endif
 
 // 消息队列名字
 #if !defined(MESSAGE_UNIQUE_NAME)
@@ -57,7 +52,7 @@ namespace Cry
 
 // 未归类的宏
 #define HeadSize (sizeof(uint32_t) + sizeof(uint32_t))
-#define TYPETEXT(x) TEXT(#x)
+
 
 
 #if !defined(_USRDLL)
