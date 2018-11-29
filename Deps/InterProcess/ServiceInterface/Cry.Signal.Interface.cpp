@@ -6,7 +6,7 @@ namespace Cry
 	{
 		ServiceInterface::ServiceInterface() : m_ObjectInterface(std::make_shared<Action::ObjectInterface>())
 		{
-			
+			DebugMsg("ππ‘Ï\n");
 		}
 		ServiceInterface::~ServiceInterface()
 		{

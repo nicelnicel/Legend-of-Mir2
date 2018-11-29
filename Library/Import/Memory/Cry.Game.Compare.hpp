@@ -17,37 +17,49 @@ namespace Cry
 			/// 优化视觉：读内存以宏代替，编译器会自动展开。
 			static u32 SearchMemory(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos)
 			{
-				const char*		pbSearchBuffer	= lpszMasks.data();
-				u8*				uResult			= 0;
-				u32				Pos				= 0;
+				const char*		pbSearchBuffer		= lpszMasks.data();
+				u8*				uResult				= 0;
+				u32				Pos					= 0;
+				ulong32			lpflOldProtect		= 0;
+				ulong32			lpflNewProtect		= 0;
+				bool			bSucess				= false;
+				u32				uProtceSize			= (uEndAddress - uBeginAddress);
 				try
 				{
-					for (u8 * pCur = reinterpret_cast<u8*>(uBeginAddress); pCur <reinterpret_cast<u8*>(uEndAddress); ++pCur)
+					if (VirtualProtectEx(INVALID_HANDLE_VALUE, reinterpret_cast<LPVOID>(uBeginAddress), uProtceSize, PAGE_EXECUTE_READWRITE, &lpflNewProtect))
 					{
-						if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
+						for (u8 * pCur = reinterpret_cast<u8*>(uBeginAddress); pCur < reinterpret_cast<u8*>(uEndAddress); ++pCur)
 						{
-							if (!uResult)
+							if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
 							{
-								uResult = pCur;
-							}
+								if (!uResult)
+								{
+									uResult = pCur;
+								}
 
-							if (pbSearchBuffer += (CryVirtualQueryMemory(u16, pbSearchBuffer) == ((u16)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((u8)'\?')) ? 3 : 2; (!*pbSearchBuffer) || (!*(pbSearchBuffer - 1)) || (!*(pbSearchBuffer + 1)))
+								if (pbSearchBuffer += (CryVirtualQueryMemory(u16, pbSearchBuffer) == ((u16)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((u8)'\?')) ? 3 : 2; (!*pbSearchBuffer) || (!*(pbSearchBuffer - 1)) || (!*(pbSearchBuffer + 1)))
+								{
+									if (++Pos == uPos)
+									{
+										break;
+									}
+									else
+									{
+										continue;
+									}
+								}
+							}
+							else if (uResult)
 							{
-								if (++Pos == uPos)
-								{
-									return reinterpret_cast<u32>(uResult);
-								}
-								else
-								{
-									continue;
-								}
+								pCur = uResult;
+								pbSearchBuffer = lpszMasks.data();
+								uResult = 0;
 							}
 						}
-						else if (uResult)
+						if (!VirtualProtectEx(INVALID_HANDLE_VALUE, reinterpret_cast<LPVOID>(uBeginAddress), uProtceSize, lpflNewProtect, &lpflOldProtect))
 						{
-							pCur = uResult;
-							pbSearchBuffer = lpszMasks.data();
-							uResult = 0;
+							DebugMsg("内存属性重置出现错误:%d\n", GetLastError());
+							return 0;
 						}
 					}
 				}
@@ -55,7 +67,7 @@ namespace Cry
 				{
 					DebugMsg("搜索内存出现异常[%s]\n", e.what());
 				}
-				return 0;
+				return reinterpret_cast<u32>(uResult);
 			}
 			static u32 SearchMemoryEx(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos = 1)
 			{

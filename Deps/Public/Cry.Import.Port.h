@@ -11,30 +11,25 @@
 typedef signed char        int8_t;
 typedef short              int16_t;
 typedef int                int32_t;
+typedef long               long32_t;
 typedef long long          int64_t;
 typedef unsigned char      uint8_t;
 typedef unsigned short     uint16_t;
 typedef unsigned int       uint32_t;
 typedef unsigned long long uint64_t;
+typedef unsigned long      ulong32_t;
 
-using i8    = int8_t;
-using i6    = int16_t;
-using i32   = int32_t;
-using i64   = int64_t;
+using i8      = int8_t;
+using i6      = int16_t;
+using i32     = int32_t;
+using i64     = int64_t;
+using long32  = ulong32_t;
 
-using u8    = uint8_t;
-using u16   = uint16_t;
-using u32   = uint32_t;
-using u64   = uint64_t;
-
-// typedef signed char				int8;
-// typedef short					int16;
-// typedef int						int32;
-// typedef long long				int64;
-// typedef unsigned char			uint8;
-// typedef unsigned short			uint16;
-// typedef unsigned int			uint32;
-// typedef unsigned long long		uint64;
+using u8      = uint8_t;
+using u16     = uint16_t;
+using u32     = uint32_t;
+using u64     = uint64_t;
+using ulong32 = ulong32_t;
 
 // These macros must exactly match those in the Windows SDK's intsafe.h.
 #define INT8_MIN         (-127i8 - 1)

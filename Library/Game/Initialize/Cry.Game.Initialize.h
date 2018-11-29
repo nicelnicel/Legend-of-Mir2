@@ -1,52 +1,11 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <unordered_map>
 namespace Cry
 {
 	namespace Base
 	{
-		struct Pointer
-		{
-		public:
-			Pointer() {};
-			Pointer(std::string Object, u32 uValue) : m_Object(Object), m_Pointer(uValue) {};
-			~Pointer() {};
-		public:
-			inline Pointer & operator=(const Pointer & uValue)
-			{
-				return *this;
-			};
-			inline bool operator==(const u32 & uValue)
-			{
-				return this->m_Pointer == uValue;
-			};
-			inline bool operator!=(const u32 & uValue)
-			{
-				return this->m_Pointer != uValue;
-			};
-			operator u32() const
-			{
-				return this->m_Pointer;
-			}
-			operator i32() const
-			{
-				return this->m_Pointer;
-			}
-			operator std::string() const
-			{
-				return this->m_Object;
-			}
-			inline Pointer* operator->()
-			{
-				return this;
-			};
-		public:
-			std::string			m_Object;		// Game Class
-			u32					m_Pointer;		// Long Pointer
-		};
-
-		typedef Pointer *lPPointer;
-
 		class DataBase
  		{
 		public:
@@ -54,12 +13,18 @@ namespace Cry
 			DataBase();
 			~DataBase();
 		public:
+			// 初始
 			bool Initialize();
+		public:
+			// 获得数据
+			u32 Get(std::string Object);
+		private:
+			// 检查数据完整性
+			bool CheckSucess();
 		public:
 			lPDataBase & GetDataBase() { return *this; };
 		public:
-			
-			std::vector<Pointer>			m_Pointer;
+			std::unordered_map<std::string, u32>			m_PointerEx;
 		};
 	};
 };

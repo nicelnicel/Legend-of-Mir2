@@ -6,7 +6,7 @@
 
 void PutsMasks()
 {
-	std::string XorDes = Cry::Text::Xor::Operate("8B D3 E8 ?? ?? ?? ?? 84 C0 74 ?? 80 BB ?? ?? ?? ?? 00");
+	std::string XorDes = Cry::Text::Xor::Operate("发送文本");
 	printf("加密结果\n");
 	for (uint32_t i = 0; i < XorDes.size(); ++i)
 	{

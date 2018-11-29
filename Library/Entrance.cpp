@@ -11,20 +11,23 @@
 bool CryEntrance::InitObjectInterface()
 {
 	bool Sucess = true;
-	Sucess &= m_DataBase->Initialize();
 	Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility);
 	return Sucess;
 }
 bool CryEntrance::InitializeNetworkService()
 {
-	if (m_DataBase = std::make_shared<Cry::Base::DataBase>(); this->InitObjectInterface())
+	// 只初始化一次
+	if (!m_DataBase)
 	{
-		if (m_Service = std::make_shared<Cry::Signal::NetworkEngineService>("127.0.0.1:9999", "Inter.Process.Client"); m_Service->CreateService())
+		if (m_DataBase = std::make_shared<Cry::Base::DataBase>(); m_DataBase->Initialize())
 		{
-			return true;
+			if (m_Service = std::make_shared<Cry::Signal::NetworkEngineService>("127.0.0.1:9999", "Inter.Process.Client"); !this->InitObjectInterface() || !m_Service->CreateService())
+			{
+				return false;
+			}
 		}
 	}
-	return false;
+	return true;
 }
 void CryEntrance::ReleaseService()
 {
