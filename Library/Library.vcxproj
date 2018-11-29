@@ -27,7 +27,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -90,7 +90,7 @@
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;LIBRARY_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -101,7 +101,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>$(SolutionDir)Deps\Public\Source.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;$(QTDIR)\plugins\platforms;..\lib\$(Configuration)\$(PlatformShortName);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -174,10 +174,12 @@
     <ClInclude Include="..\Deps\InterProcess\ServiceInterface\Cry.Signal.Interface.h" />
     <ClInclude Include="..\Deps\Public\Cry.Import.Action.h" />
     <ClInclude Include="..\Deps\Public\Cry.Import.Global.h" />
+    <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp" />
     <ClInclude Include="Entrance.h" />
     <ClInclude Include="Game\Cry.Game.Interface.h" />
     <ClInclude Include="Game\Initialize\Cry.Game.Initialize.h" />
     <ClInclude Include="Game\Utility\Cry.Game.Utility.h" />
+    <ClInclude Include="Import\Memory\Cry.Game.Compare.hpp" />
     <ClInclude Include="InterProcess\Cry.Signal.Client.h" />
   </ItemGroup>
   <ItemGroup>

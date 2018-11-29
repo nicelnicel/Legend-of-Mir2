@@ -3,6 +3,7 @@
 #include <Injection/Message.h>
 #include <InterProcess/Cry.Signal.Service.h>
 #include <SendCmd.pb.h>
+#include <StringXor.h>
 namespace QWindows
 {
 	FirstLication::FirstLication(Cry::Signal::NetworkEngineService* Service, QWidget *Parent) : QWidget(Parent), m_Service(Service)
@@ -166,6 +167,7 @@ namespace QWindows
 	}
 	void FirstLication::OnSend()
 	{
+		DebugMsg("Ω‚√‹:%s\n", Cry::Text::Xor::Operate("\x58\xFF\x40\xF9\x53\x9D\x25\x85\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x85\x54\x9D\x23\x8D\x40\x8A\x54\x9D\x5F\x82\x40\x85\x50\x9D\x22\xFF\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x8D\x50\x00\x00").c_str());
 		SocketData::CmdRequest Req;
 		Req.clear_content();
 		Req.set_content("123321123321");

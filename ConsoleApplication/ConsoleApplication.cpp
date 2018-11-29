@@ -2,8 +2,31 @@
 //
 #include <Windows.h>
 #include <iostream>
+#include <StringXor.h>
+
+void PutsMasks()
+{
+	std::string XorDes = Cry::Text::Xor::Operate("8B D3 E8 ?? ?? ?? ?? 84 C0 74 ?? 80 BB ?? ?? ?? ?? 00");
+	printf("加密结果\n");
+	for (uint32_t i = 0; i < XorDes.size(); ++i)
+	{
+		printf("0x%02X, ", (uint8_t)XorDes[i]);
+	}
+	printf("0x00, 0x00\n");
+
+	for (uint32_t i = 0; i < XorDes.size(); ++i)
+	{
+		printf("\\x%02X", (uint8_t)XorDes[i]);
+	}
+	printf("\\x00\\x00\n");
+
+	
+}
+
 int main()
 {
+	PutsMasks();
+	printf("解密结果：%s\n", Cry::Text::Xor::Operate(Cry::Text::Xor::Operate("我爱中国").c_str()).c_str());
 	getchar();
     std::cout << "Hello World!\n"; 
 	return 0;

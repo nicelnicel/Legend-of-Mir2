@@ -17,7 +17,7 @@ namespace Cry
 		public:
 			virtual ~DispatcherInterface() = default;
 		public:
-			virtual LRESULT OnMessage(int nCode, WPARAM wParam, LPARAM lParam) { return 0; };
+			virtual LRESULT OnMessage(int nCode, WPARAM wParam, LPARAM lParam) { UNREFERENCED_PARAMETER(nCode); UNREFERENCED_PARAMETER(wParam); UNREFERENCED_PARAMETER(lParam); return 0; };
 		protected:
 			DispatcherInterface() = default;
 			DispatcherInterface(const DispatcherInterface &) = default;

@@ -58,7 +58,7 @@
     <Filter Include="头文件\Action\Database">
       <UniqueIdentifier>{e1014337-9290-402d-9f43-4bc1d6a999af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\Utility">
+    <Filter Include="头文件\Public\Utility">
       <UniqueIdentifier>{ef0df2de-a1f6-4051-b652-f7caaffc2335}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -94,7 +94,7 @@
       <Filter>头文件\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp">
-      <Filter>头文件\Utility</Filter>
+      <Filter>头文件\Public\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -172,6 +172,7 @@
     <ClInclude Include="..\Include\Module.h" />
     <ClInclude Include="..\Include\Output\Output.h" />
     <ClInclude Include="..\Include\StringTrim.h" />
+    <ClInclude Include="..\Include\StringXor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\Ascii.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="..\Source\Module.cpp" />
     <ClCompile Include="..\Source\Output\Output.cpp" />
     <ClCompile Include="..\Source\StringTrim.cpp" />
+    <ClCompile Include="..\Source\StringXor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

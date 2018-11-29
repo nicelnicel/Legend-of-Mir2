@@ -73,6 +73,12 @@
     <Filter Include="头文件\Game\Utility">
       <UniqueIdentifier>{84eacc4c-86b2-4b3a-88e5-e55c13dbca75}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Import\Memory">
+      <UniqueIdentifier>{296a9bf6-841f-4a41-8893-a810c8d6c86c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Public\Utility">
+      <UniqueIdentifier>{051d70d6-59dd-47d0-9636-a43c3a42b537}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entrance.h">
@@ -113,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="..\Deps\Public\Cry.Import.Global.h">
       <Filter>头文件\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\Memory\Cry.Game.Compare.hpp">
+      <Filter>头文件\Import\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp">
+      <Filter>头文件\Public\Utility</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

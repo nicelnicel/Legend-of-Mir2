@@ -66,6 +66,9 @@
     <ClInclude Include="..\Include\Injection\Message.h">
       <Filter>头文件\Kernel\Injection</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\StringXor.h">
+      <Filter>头文件\Text</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\Ascii.cpp">
@@ -82,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="..\Source\Injection\Message.cpp">
       <Filter>源文件\Kernel\Injection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\StringXor.cpp">
+      <Filter>源文件\Text</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

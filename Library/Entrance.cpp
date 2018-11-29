@@ -5,10 +5,12 @@
 #include <Import/Cry.Event.hpp>
 #include <Import/Cry.Proto.hpp>
 #include <Game/Utility/Cry.Game.Utility.h>
+#include <Import/Memory/Cry.Game.Compare.hpp>
+#include <StringXor.h>
 bool CryEntrance::InitObjectInterface()
 {
-	DebugMsg("初始化全部对象\n");
 	bool Sucess = true;
+	DebugMsg("初始化全部对象\n");
 	Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility);
 	return Sucess;
 }
@@ -113,6 +115,7 @@ int main()
 }
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved)
 {
+	UNREFERENCED_PARAMETER(lpReserved);
     switch (fdwReason)
     {
     case DLL_PROCESS_ATTACH:

@@ -1,4 +1,4 @@
-#include "StringTrim.h"
+#include <StringTrim.h>
 #include <Ascii.hpp>
 namespace Cry
 {
