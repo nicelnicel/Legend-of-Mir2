@@ -10,7 +10,7 @@
 bool CryEntrance::InitObjectInterface()
 {
 	bool Sucess = true;
-	DebugMsg("初始化全部对象\n");
+
 	Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility);
 	return Sucess;
 }

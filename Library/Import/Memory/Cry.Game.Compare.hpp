@@ -1,6 +1,7 @@
 #pragma once
 #include <cstdint>
 #include <Helper>
+#include <StringXor.h>
 namespace Cry
 {
 	namespace Action
@@ -14,62 +15,51 @@ namespace Cry
 				public:
 					virtual ~Masks() = default;
 				public:
-					static PBYTE findPattern(const PBYTE rangeStart, const PBYTE rangeEnd, const char* pattern)
+					static uint32_t SearchMemory(const uint32_t uBeginAddress, const uint32_t uEndAddress, std::string lpszMasks, uint32_t uPos)
 					{
-						const unsigned char* pat = reinterpret_cast<const unsigned char*>(pattern);
-						PBYTE firstMatch = 0;
-						for (PBYTE pCur = rangeStart; pCur < rangeEnd; ++pCur) {
-							if (*(PBYTE)pat == (BYTE)'\?' || *pCur == getByte(pat)) {
-								if (!firstMatch) {
-									firstMatch = pCur;
-								}
-								pat += (*(PWORD)pat == (WORD)'\?\?' || *(PBYTE)pat != (BYTE)'\?') ? 3 : 2;
-								if (!*pat) {
-									return firstMatch;
-								}
-							}
-							else if (firstMatch) {
-								pCur = firstMatch;
-								pat = reinterpret_cast<const unsigned char*>(pattern);
-								firstMatch = 0;
-							}
-						}
-						return NULL;
-					}
-
-					static uint32_t SearchMemory(const uint32_t uBeginAddress, const uint32_t uEndAddress, const char * lpszMasks, uint32_t uPos = 1) noexcept
-					{
-						const char * pbSearchBuffer = lpszMasks;
+						const char * pbSearchBuffer = lpszMasks.data();
 						uint8_t * uResult = 0;
 						uint32_t Pos = 0;
-						for (uint8_t * pCur = reinterpret_cast<uint8_t*>(uBeginAddress); pCur < reinterpret_cast<uint8_t*>(uEndAddress); ++pCur)
+						try
 						{
-							if (CryVirtualQueryMemory(uint16_t, pbSearchBuffer) == (uint16_t)'\?\?' || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == (uint8_t)'\?' || *pCur == getByte(pbSearchBuffer))
+							for (uint8_t * pCur = reinterpret_cast<uint8_t*>(uBeginAddress); pCur < reinterpret_cast<uint8_t*>(uEndAddress); ++pCur)
 							{
-								if (!uResult)
+								if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((uint8_t)'\?') || *pCur == getByte(pbSearchBuffer))
 								{
-									uResult = pCur;
+									if (!uResult)
+									{
+										uResult = pCur;
+									}
+
+									if (pbSearchBuffer += (CryVirtualQueryMemory(uint16_t, pbSearchBuffer) == ((uint16_t)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((uint8_t)'\?')) ? 3 : 2; (!*pbSearchBuffer) || (!*(pbSearchBuffer - 1)) || (!*(pbSearchBuffer + 1)))
+									{
+										if (++Pos == uPos)
+										{
+											return reinterpret_cast<uint32_t>(uResult);
+										}
+										else
+										{
+											continue;
+										}
+									}
 								}
-								if (pbSearchBuffer += (CryVirtualQueryMemory(uint16_t, pbSearchBuffer) == ((uint16_t)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((uint8_t)'\?')) ? 3 : 2; (!*pbSearchBuffer))
+								else if (uResult)
 								{
-									if (++Pos == uPos)
-									{
-										return reinterpret_cast<uint32_t>(uResult);
-									}
-									else
-									{
-										continue;
-									}
+									pCur = uResult;
+									pbSearchBuffer = lpszMasks.data();
+									uResult = 0;
 								}
-							}
-							else if (uResult)
-							{
-								pCur = uResult;
-								pbSearchBuffer = lpszMasks;
-								uResult = 0;
 							}
 						}
+						catch (std::exception & e)
+						{
+							DebugMsg("搜索内存出现异常[%s]\n", e.what());
+						}
 						return 0;
+					}
+					static uint32_t SearchMemoryEx(const uint32_t uBeginAddress, const uint32_t uEndAddress, std::string lpszMasks, uint32_t uPos = 1)
+					{
+						return SearchMemory(uBeginAddress, uEndAddress, Cry::Text::Xor::Operate(lpszMasks), uPos);
 					}
 				private:
 					Masks() = default;
