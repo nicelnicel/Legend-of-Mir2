@@ -11,14 +11,18 @@ namespace Cry
 		public:
 			virtual ~Masks() = default;
 		public:
+			/// 代码来源：https://github.com/learn-more/findpattern-bench/blob/master/patterns/learn_more.h
+			/// 修复问题：特征码末尾一个结束符'\0'导致内存搜索失败的情况。
+			/// 优化性能：跳过int3断点。
+			/// 优化视觉：读内存以宏代替，编译器会自动展开。
 			static uint32_t SearchMemory(const uint32_t uBeginAddress, const uint32_t uEndAddress, std::string lpszMasks, uint32_t uPos)
 			{
-				const char * pbSearchBuffer = lpszMasks.data();
-				uint8_t * uResult = 0;
-				uint32_t Pos = 0;
+				const char*		pbSearchBuffer	= lpszMasks.data();
+				uint8_t*		uResult			= 0;
+				uint32_t		Pos				= 0;
 				try
 				{
-					for (uint8_t * pCur = reinterpret_cast<uint8_t*>(uBeginAddress); pCur < reinterpret_cast<uint8_t*>(uEndAddress); ++pCur)
+					for (uint8_t * pCur = reinterpret_cast<uint8_t*>(uBeginAddress); pCur <reinterpret_cast<uint8_t*>(uEndAddress); ++pCur)
 					{
 						if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((uint8_t)'\?') || *pCur == getByte(pbSearchBuffer))
 						{
