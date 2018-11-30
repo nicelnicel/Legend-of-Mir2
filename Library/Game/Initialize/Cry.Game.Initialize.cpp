@@ -5,29 +5,28 @@ namespace Cry
 {
 	namespace Base
 	{
-
-		DataBase::DataBase()
-		{
-			/*u32 uResult = ;*/
-		}
 		DataBase::~DataBase()
 		{
+			m_PointerEx.clear();
+			DebugMsg("释放[%s]数据\n", "Database");
 		}
-
 		bool DataBase::Initialize()
 		{
-			bool bSucess = true;
+			bool bSucess;
 
 			try
 			{
-				///发送文本 -> (BE ? ? ? ? ? ? ? ? ? ? ? ? 8B 06 8B 08 FF ? ? ? ? 8B D0)
-				m_PointerEx.emplace(std::make_pair("\xD7\x1F\xAB\x70\xAE\x79\xD1\x03\x00\x00", Cry::Memory::Masks::SearchMemoryEx(0x516000, 0x516FFF, "\x22\xF8\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x85\x22\x9D\x50\x8B\x40\x85\x22\x9D\x50\x85\x40\xFB\x26\x9D\x5F\x82\x40\x82\x5F\x9D\x58\xFF\x40\xF9\x50\x00\x00")));
+				///猥琐指针 -> BE ? ? ? ? ? ? ? ? ? ? ? ? 8B 06 8B 08 FF ? ? ? ? 8B D0
+				m_PointerEx.emplace(std::make_pair("\x82\x16\xAB\x4B\xB6\x05\xB5\x56\x00\x00", Cry::Memory::Masks::SearchMemoryEx(0x516000, 0x516FFF, "\x22\xF8\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x85\x22\x9D\x50\x8B\x40\x85\x22\x9D\x50\x85\x40\xFB\x26\x9D\x5F\x82\x40\x82\x5F\x9D\x58\xFF\x40\xF9\x50\x00\x00")));
+				///文本指针 -> 89 02 A1 ?? ?? ?? ?? 8B 56 ?? 8B 92
+				m_PointerEx.emplace(std::make_pair("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00", Cry::Memory::Masks::SearchMemoryEx(0x516000, 0x516FFF, "\x58\x84\x40\x8D\x52\x9D\x21\x8C\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x85\x22\x9D\x55\x8B\x40\x82\x5F\x9D\x58\xFF\x40\x84\x52\x00\x00")));
+
 				
 				bSucess = this->CheckSucess();
 			}
 			catch (std::exception & e)
 			{
-				DebugMsg("初始化数据出现异常[%s]\n", e.what());
+				DebugMsg("初始数据出现异常[%s]\n", e.what());
 				bSucess = false;
 				
 			}
@@ -35,12 +34,20 @@ namespace Cry
 		}
 		u32 DataBase::Get(std::string lpszObject)
 		{
-			if (!m_PointerEx.empty())
+			try
 			{
-				if (auto list = m_PointerEx.find(lpszObject); list != std::end(m_PointerEx))
+				if (!m_PointerEx.empty())
 				{
-					return list->second;
+					if (auto list = m_PointerEx.find(lpszObject); list != std::end(m_PointerEx))
+					{
+						return list->second;
+					}
 				}
+				throw std::string("查找[%s]失败", Text::Xor::Operate(lpszObject).c_str());
+			}
+			catch (std::exception & e)
+			{
+				DebugMsg("查找数据出现异常[%s]\n", e.what());
 			}
 			return 0;
 		}
@@ -51,12 +58,12 @@ namespace Cry
 			{
 				if (!Pointer)
 				{
-					DebugMsg("游戏对象[%s]初始失败\n", Text::Xor::Operate(Object.c_str()).c_str());
+					DebugMsg("游戏对象[%s]初始失败\n", Text::Xor::Operate(Object).c_str());
 					bSucess = false;
 				}
 				else
 				{
-					DebugMsg("游戏对象[%s]初始成功 [%p]\n", Text::Xor::Operate(Object.c_str()).c_str(), Pointer);
+					DebugMsg("游戏对象[%s]初始成功 [%p]\n", Text::Xor::Operate(Object).c_str(), Pointer);
 				}
 			}
 			return bSucess;

@@ -9,7 +9,7 @@ namespace Cry
 	{
 		namespace Game
 		{
-
+			class InterfaceEx;
 		};
 	};
 	namespace Base
@@ -47,5 +47,6 @@ private:
 private:
 	std::shared_ptr<Cry::Signal::NetworkEngineService>			m_Service;
 	std::shared_ptr<Cry::Base::DataBase>						m_DataBase;
+	std::shared_ptr<Cry::Action::Game::InterfaceEx>				m_InterfaceEx;
 };
 static CryEntrance theapp;

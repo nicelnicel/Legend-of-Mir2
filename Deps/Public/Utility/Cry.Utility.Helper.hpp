@@ -11,10 +11,10 @@
 	# define DebugMsg(...) do { TCHAR debugMsg[MAX_PATH]; _sntprintf_s(debugMsg, _countof(debugMsg), _TRUNCATE, ##__VA_ARGS__); OutputDebugString(debugMsg); } while(0)
 #endif
 // 读写内存
-#define getCope(_x, a, b)							(_x >= a && _x <= b) 
-#define getBits(_x)									(getCope(_x, '0', '9') ? (_x - '0') : ((_x & (~0x20)) - 'A' + 0xa))
-#define getByte(_x)									(getBits(_x[0]) << 4 | getBits(_x[1]))
-#define CryVirtualQueryMemory(_Type, _x)			*(_Type *)(_x)
+#define getCope(x, a, b)							(x >= a && x <= b) 
+#define getBits(x)									(getCope(x, '0', '9') ? (x - '0') : ((x & (~0x20)) - 'A' + 0xa))
+#define getByte(x)									(getBits(x[0]) << 4 | getBits(x[1]))
+#define CryVirtualQueryMemory(_Type, x)			*(_Type *)(x)
 
 #define MetaType(_Type) qRegisterMetaType<_Type>(#_Type);
 

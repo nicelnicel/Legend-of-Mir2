@@ -30,7 +30,7 @@ namespace Cry
 					{
 						for (u8 * pCur = reinterpret_cast<u8*>(uBeginAddress); pCur < reinterpret_cast<u8*>(uEndAddress); ++pCur)
 						{
-							if (*pCur != 0xCC && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
+							if (*pCur != 0xCC && *pCur != 0x90 && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
 							{
 								if (!uResult)
 								{

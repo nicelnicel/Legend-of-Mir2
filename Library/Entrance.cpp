@@ -5,13 +5,20 @@
 #include <Import/Cry.Event.hpp>
 #include <Import/Cry.Proto.hpp>
 #include <Game/Initialize/Cry.Game.Initialize.h>
+#include <Game/Cry.Game.Interface.h>
 #include <Game/Utility/Cry.Game.Utility.h>
 #include <Import/Memory/Cry.Game.Compare.hpp>
 #include <StringXor.h>
 bool CryEntrance::InitObjectInterface()
 {
+	// 服务器独立
+	// 接口存储地址
+	// 对象存储接口
 	bool Sucess = true;
-	Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility);
+	if (m_InterfaceEx = std::make_shared<Cry::Action::Game::InterfaceEx>(m_DataBase); m_InterfaceEx)
+	{
+		Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility(m_InterfaceEx));
+	}
 	return Sucess;
 }
 bool CryEntrance::InitializeNetworkService()
@@ -35,6 +42,8 @@ void CryEntrance::ReleaseService()
 	{
 		m_Service->CancelService();
 		m_Service.reset();
+		m_DataBase.reset();
+		m_InterfaceEx.reset();
 	}
 }
 LRESULT CALLBACK CryEntrance::GetMsgProc(int nCode, WPARAM wParam, LPARAM lParam)

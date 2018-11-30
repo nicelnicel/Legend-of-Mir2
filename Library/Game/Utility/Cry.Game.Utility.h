@@ -10,14 +10,17 @@ namespace Cry
 	{
 		namespace Game
 		{
+			class InterfaceEx;
+
 			class Utility : public UnknownInterfaceEx
 			{
 			public:
-				Utility();
+				Utility(std::shared_ptr<InterfaceEx> & Interface);
 				~Utility();
 			public:
 				virtual bool OnSocketData(const std::shared_ptr<Cry::Signal::Work> & pWork, const uint32_t uMsg, const void * pData, const uint32_t uSize) override;
 			private:
+				std::shared_ptr<InterfaceEx>									m_Interface;
 			};
 		};
 	};

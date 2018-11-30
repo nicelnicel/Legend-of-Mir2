@@ -9,9 +9,8 @@ namespace Cry
 		class DataBase
  		{
 		public:
-			using lPDataBase = DataBase;
-			DataBase();
-			~DataBase();
+			DataBase() = default;
+			virtual ~DataBase();
 		public:
 			// 初始
 			bool Initialize();
@@ -22,9 +21,12 @@ namespace Cry
 			// 检查数据完整性
 			bool CheckSucess();
 		public:
-			lPDataBase & GetDataBase() { return *this; };
+			DataBase & GetDataBase() { return *this; };
 		public:
 			std::unordered_map<std::string, u32>			m_PointerEx;
+		protected:
+			DataBase(const DataBase &) = default;
+			DataBase &operator=(const DataBase &) = default;
 		};
 	};
 };

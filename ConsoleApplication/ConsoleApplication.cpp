@@ -2,12 +2,18 @@
 //
 #include <Windows.h>
 #include <iostream>
+#include <stdio.h>
+#include <cstdio>
 #include <StringXor.h>
-
-void PutsMasks()
+void PutsMasks(std::string lpszString)
 {
-	std::string XorDes = Cry::Text::Xor::Operate("发送文本");
-	printf("加密结果\n");
+	if (lpszString.empty())
+	{
+		return;
+	}
+	std::cout << "加密文本：" << lpszString << std::endl;
+	std::string XorDes = Cry::Text::Xor::Operate(lpszString);
+	std::cout << "加密结果" << std::endl;
 	for (uint32_t i = 0; i < XorDes.size(); ++i)
 	{
 		printf("0x%02X, ", (uint8_t)XorDes[i]);
@@ -19,15 +25,16 @@ void PutsMasks()
 		printf("\\x%02X", (uint8_t)XorDes[i]);
 	}
 	printf("\\x00\\x00\n");
-
-	
 }
-
 int main()
 {
-	PutsMasks();
-	printf("解密结果：%s\n", Cry::Text::Xor::Operate(Cry::Text::Xor::Operate("我爱中国").c_str()).c_str());
-	getchar();
-    std::cout << "Hello World!\n"; 
+	char lpszText[MAX_PATH];
+	while (gets_s(lpszText))
+	{
+		system("cls");
+		PutsMasks(lpszText);
+	}
+	std::cout << "exit" << std::endl;
+	system("pause");
 	return 0;
 }
