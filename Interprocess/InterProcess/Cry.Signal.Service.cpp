@@ -61,8 +61,8 @@ namespace Cry
 					pData->Skip(uSize);
 					uMsg = 0;
 				}
-				return true;
 			}
+			return true;
 		}
 		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message &pData)
 		{
@@ -85,8 +85,8 @@ namespace Cry
 						return true;
 					}
 				}
-				return false;
 			}
+			return false;
 		}
 		bool Work::OnNotify(const uint32_t uMsg, const google::protobuf::Message *pData)
 		{

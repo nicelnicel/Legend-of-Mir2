@@ -81,8 +81,8 @@ namespace Cry
 						return true;
 					}
 				}
-				return false;
 			}
+			return false;
 		}
 
 		NetworkEngineService::NetworkEngineService(const std::string& lpszAddress, const std::string& lpszFlags) : m_Client(m_EventLoop.loop(), lpszAddress, lpszFlags)
