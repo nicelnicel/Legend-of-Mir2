@@ -79,6 +79,9 @@
     <Filter Include="头文件\Public\Utility">
       <UniqueIdentifier>{051d70d6-59dd-47d0-9636-a43c3a42b537}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Exception">
+      <UniqueIdentifier>{72bab784-650b-4ad5-a5a5-89afd5f3feb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entrance.h">
@@ -128,6 +131,9 @@
     </ClInclude>
     <ClInclude Include="..\Deps\Public\Cry.Import.Port.h">
       <Filter>头文件\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Exception\Cry.Game.Exception.hpp">
+      <Filter>头文件\Exception</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

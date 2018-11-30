@@ -15,9 +15,9 @@ bool CryEntrance::InitObjectInterface()
 	// 接口存储地址
 	// 对象存储接口
 	bool Sucess = true;
-	if (m_InterfaceEx = std::make_shared<Cry::Action::Game::InterfaceEx>(m_DataBase); m_InterfaceEx)
+	if (m_InterfaceEx = std::make_shared<Cry::Game::InterfaceEx>(m_DataBase); m_InterfaceEx)
 	{
-		Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Game::Utility(m_InterfaceEx));
+		Sucess &= m_Service->GetObjectInterface()->Add(0, new Cry::Action::Utility(m_InterfaceEx));
 	}
 	return Sucess;
 }

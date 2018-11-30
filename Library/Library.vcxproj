@@ -180,6 +180,7 @@
     <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp" />
     <ClInclude Include="Entrance.h" />
     <ClInclude Include="Game\Cry.Game.Interface.h" />
+    <ClInclude Include="Game\Exception\Cry.Game.Exception.hpp" />
     <ClInclude Include="Game\Initialize\Cry.Game.Initialize.h" />
     <ClInclude Include="Game\Utility\Cry.Game.Utility.h" />
     <ClInclude Include="Import\Memory\Cry.Game.Compare.hpp" />

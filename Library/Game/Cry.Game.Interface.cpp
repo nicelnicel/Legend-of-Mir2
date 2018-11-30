@@ -2,57 +2,73 @@
 #include <Game/Cry.Game.Interface.h>
 #include <Game/Initialize/Cry.Game.Initialize.h>
 #include <StringXor.h>
+#include <Game/Exception/Cry.Game.Exception.hpp>
 namespace Cry
 {
-	namespace Action
+	namespace Game
 	{
-		namespace Game
+		Interface::Interface(std::shared_ptr<Base::DataBase> & DataBase) : m_DataBase(DataBase)
 		{
-			Interface::Interface(std::shared_ptr<Base::DataBase> & DataBase) : m_DataBase(DataBase)
-			{
 
-			}
-			Interface::~Interface()
+		}
+		Interface::~Interface()
+		{
+			m_DataBase = nullptr;
+		}
+		u32 Interface::GetPointer(lPCString lpszString)
+		{
+			try
 			{
-				m_DataBase = nullptr;
+				return CryVirtualQueryMemory(u32, m_DataBase->Get(lpszString));
 			}
-			u32 Interface::GetPointer(lPCString lpszString)
+			catch (std::string & lpszExceptionString)
 			{
-				try
-				{
-					return CryVirtualQueryMemory(u32, m_DataBase->Get(lpszString));
-				}
-				catch (std::string & lpszString)
-				{
-					DebugMsg("%s:%s\n", __FUNCTION__, lpszString.c_str());
-				}
-				return 0;
+				DebugMsg("%s:%s\n", __FUNCTION__, lpszExceptionString.c_str());
 			}
-			InterfaceEx::InterfaceEx(std::shared_ptr<Base::DataBase> & DataBase) : m_Interface(std::make_shared<Game::Interface>(DataBase)), m_DataBase(DataBase)
+			catch(Cry::Game::Exception & e)
 			{
+				DebugMsg("%s:%s\n", __FUNCTION__, e.Info().c_str());
+			}
+			return 0;
+		}
+		InterfaceEx::InterfaceEx(std::shared_ptr<Base::DataBase> & DataBase) : m_Interface(std::make_shared<Game::Interface>(DataBase)), m_DataBase(DataBase)
+		{
 
-			}
-			InterfaceEx::~InterfaceEx()
+		}
+		InterfaceEx::~InterfaceEx()
+		{
+			m_DataBase = nullptr;
+			m_Interface.reset();
+		}
+		u32 InterfaceEx::ExceptionFunction(u32 dwExceptionCode)
+		{
+			u32 ExceptionCode = EXCEPTION_CONTINUE_SEARCH;
+			switch (dwExceptionCode)
 			{
-				m_DataBase = nullptr;
-				m_Interface.reset();
+			case EXCEPTION_INVALID_DISPOSITION:
+			case EXCEPTION_BREAKPOINT:
+			case EXCEPTION_ACCESS_VIOLATION:
+			case EXCEPTION_FLT_STACK_CHECK:
+			case EXCEPTION_STACK_OVERFLOW: ExceptionCode = EXCEPTION_EXECUTE_HANDLER; break;
+			default: break;
 			}
-			u32 InterfaceEx::ExceptionFunction(u32 dwExceptionCode)
+			return ExceptionCode;
+		}
+		bool InterfaceEx::SendCmd(lPCString lpszString)
+		{
+			__try
 			{
-				return (dwExceptionCode == STATUS_STACK_OVERFLOW) ? EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH;
+				// 发言
+				CryVirtualQueryMemory(lPCString, m_Interface->GetPointer("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00")) = lpszString;
+
+				// 结束
+				CryVirtualQueryMemory(lPCString, m_Interface->GetPointer("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00")) = 0;
 			}
-			bool InterfaceEx::SendCmd(lPCString lpszString)
+			__except (Cry::Game::Exception::ExceptionHandler(GetExceptionCode()))
 			{
-				__try
-				{
-					CryVirtualQueryMemory(lPCString, m_Interface->GetPointer("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00")) = lpszString;
-				}
-				__except(this->ExceptionFunction(GetExceptionCode()))
-				{
-					DebugMsg("Structured Exception Handling -> %s\n", __FUNCTION__);
-				}
-				return true;
+				DebugMsg("Structured Exception Handling -> %s\n", __FUNCTION__);
 			}
-		};
+			return true;
+		}
 	};
 };

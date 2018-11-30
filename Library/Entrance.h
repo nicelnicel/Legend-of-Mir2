@@ -1,16 +1,13 @@
 #pragma once
 namespace Cry
 {
+	namespace Game
+	{
+		class InterfaceEx;
+	}
 	namespace Signal
 	{
 		class NetworkEngineService;
-	};
-	namespace Action
-	{
-		namespace Game
-		{
-			class InterfaceEx;
-		};
 	};
 	namespace Base
 	{
@@ -47,6 +44,6 @@ private:
 private:
 	std::shared_ptr<Cry::Signal::NetworkEngineService>			m_Service;
 	std::shared_ptr<Cry::Base::DataBase>						m_DataBase;
-	std::shared_ptr<Cry::Action::Game::InterfaceEx>				m_InterfaceEx;
+	std::shared_ptr<Cry::Game::InterfaceEx>						m_InterfaceEx;
 };
 static CryEntrance theapp;

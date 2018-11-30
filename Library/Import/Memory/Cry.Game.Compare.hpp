@@ -16,15 +16,15 @@ namespace Cry
 			/// 优化性能：跳过int3断点。
 			/// 优化视觉：读内存以宏代替，编译器会自动展开。
 			/// 个人观点：或者说我没有见过好的代码、但至少这是我见过最聪明的内存搜索方式了。
-			static u32 Execution(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos)
+			static u32 Execution(const u32 uBeginAddress, const u32 uEndAddress, lPCString lpszMasks, u32 uPos)
 			{
-				const char*		pbSearchBuffer		= lpszMasks.data();
+				const char*		pbSearchBuffer		= lpszMasks;
 				u8*				uResult				= 0;
 				u32				Pos					= 0;
 				ulong32			lpflOldProtect		= 0;
 				ulong32			lpflNewProtect		= 0;
 				u32				uProtceSize			= (uEndAddress - uBeginAddress);
-				try
+				__try
 				{
 					if (VirtualProtectEx(INVALID_HANDLE_VALUE, reinterpret_cast<LPVOID>(uBeginAddress), uProtceSize, PAGE_EXECUTE_READWRITE, &lpflNewProtect))
 					{
@@ -55,7 +55,7 @@ namespace Cry
 							else if (uResult)
 							{
 								pCur = uResult;
-								pbSearchBuffer = lpszMasks.data();
+								pbSearchBuffer = lpszMasks;
 								uResult = 0;
 							}
 						}
@@ -66,19 +66,19 @@ namespace Cry
 						}
 					}
 				}
-				catch (std::exception & e)
+				__except (EXCEPTION_EXECUTE_HANDLER)
 				{
-					DebugMsg("搜索内存出现异常[%s]\n", e.what());
+					DebugMsg("搜索内存出现异常\n");
 				}
 				return reinterpret_cast<u32>(uResult);
 			}
 			static u32 SearchMemory(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos = 1)
 			{
-				return Execution(uBeginAddress, uEndAddress, Cry::Encrypt::Xor::Operate(lpszMasks), uPos);
+				return Execution(uBeginAddress, uEndAddress, Cry::Encrypt::Xor::Operate(lpszMasks).c_str(), uPos);
 			}
 			static u32 SearchMemoryEx(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 Offset = 0, u32 uPos = 1)
 			{
-				return Cry::Encrypt::Xor::Operate(CryVirtualQueryMemory(u32, Execution(uBeginAddress, uEndAddress, Cry::Encrypt::Xor::Operate(lpszMasks), uPos) + Offset));
+				return Cry::Encrypt::Xor::Operate(CryVirtualQueryMemory(u32, Execution(uBeginAddress, uEndAddress, Cry::Encrypt::Xor::Operate(lpszMasks).c_str(), uPos) + Offset));
 			}
 		private:
 			Masks() = default;
