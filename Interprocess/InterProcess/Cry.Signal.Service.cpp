@@ -6,6 +6,8 @@ namespace Cry
 {
 	namespace Signal
 	{
+
+
 		Work::Work(NetworkEngineService * Service, evpp::TCPConnPtr Conn, evpp::EventLoop* Loop)
 		{
 			m_Service = Service;
@@ -15,70 +17,76 @@ namespace Cry
 		bool Work::Receive(evpp::Buffer * pData)
 		{
 			uint32_t uMsg = 0, uSize = 0;
-			while (pData->length() > 0)
+			WorkLeave Leave(pData);
 			{
-				if (!uMsg)
+				while (pData->length() > 0)
 				{
-					if (!m_Service || pData->length() < HeadSize)
+					if (!uMsg)
 					{
-						DLOG_TRACE << "Recv DataSize < HeardSize Error:" << m_Conn->remote_addr();
+						if (!m_Service || pData->length() < HeadSize)
+						{
+							DLOG_TRACE << "Recv DataSize < HeardSize Error:" << m_Conn->remote_addr();
+							return false;
+						}
+						uSize = pData->ReadInt32();
+						uSize -= HeadSize;
+						uMsg = pData->ReadInt32();
+					}
+					if (pData->size() < uSize)
+					{
+						DLOG_TRACE << "Recv DataSize < MessageSize:" << m_Conn->remote_addr();
 						return false;
 					}
-					uSize = pData->ReadInt32();
-					uSize -= HeadSize;
-					uMsg = pData->ReadInt32();
-				}
-				if (pData->size() < uSize)
-				{
-					DLOG_TRACE << "Recv DataSize < MessageSize:" << m_Conn->remote_addr();
-					return false;
-				}
-				if (Action::lPUnknownInterfaceEx lpListener = m_Service->GetObjectInterface()->Get(0); (lpListener == nullptr ? lpListener = m_Service->GetObjectInterface()->Get("FirstLication") : lpListener))
-				{
-					try
+					if (Action::lPUnknownInterfaceEx lpListener = m_Service->GetObjectInterface()->Get(0); (lpListener == nullptr ? lpListener = m_Service->GetObjectInterface()->Get("FirstLication") : lpListener))
 					{
-						if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+						try
 						{
-							DLOG_TRACE << "发送数据失败";
+							if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+							{
+								DLOG_TRACE << "发送数据失败";
+								return false;
+							}
+						}
+						catch (std::exception & e)
+						{
+							DebugMsg("%s\n", e.what());
 							return false;
 						}
 					}
-					catch (std::exception & e)
+					else
 					{
-						DebugMsg("%s\n", e.what());
+						DLOG_TRACE << "Exec lpListener = nullptr:" << m_Conn->remote_addr();
 						return false;
 					}
+					pData->Skip(uSize);
+					uMsg = 0;
 				}
-				else
-				{
-					DLOG_TRACE << "Exec lpListener = nullptr:" << m_Conn->remote_addr();
-					return false;
-				}
-				pData->Skip(uSize);
-				uMsg = 0;
+				return true;
 			}
-			return true;
 		}
 		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message &pData)
 		{
-			uint32_t len = (pData.ByteSize() + HeadSize);
-			if(len >= HeadSize)
+			std::lock_guard<std::mutex> Guard(m_Mutex);
 			{
-				if (m_lpszBody.capacity() < len)
+				uint32_t len = (pData.ByteSize() + HeadSize);
+				if (len >= HeadSize)
 				{
-					m_lpszBody.resize(len);
-				}
+					if (m_lpszBody.capacity() < len)
+					{
+						m_lpszBody.resize(len);
+					}
 
-				*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data())) = htonl(len);
-				*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data()) + sizeof(uint32_t)) = htonl(uMsg);
+					*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data())) = htonl(len);
+					*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data()) + sizeof(uint32_t)) = htonl(uMsg);
 
-				if (pData.SerializePartialToArray(const_cast<char *>(m_lpszBody.data()) + HeadSize, pData.ByteSize()))
-				{
-					m_Conn->Send(m_lpszBody.data(), len);
-					return true;
+					if (pData.SerializePartialToArray(const_cast<char *>(m_lpszBody.data()) + HeadSize, pData.ByteSize()))
+					{
+						m_Conn->Send(m_lpszBody.data(), len);
+						return true;
+					}
 				}
+				return false;
 			}
-			return false;
 		}
 		bool Work::OnNotify(const uint32_t uMsg, const google::protobuf::Message *pData)
 		{
@@ -123,10 +131,7 @@ namespace Cry
 			DebugMsg("OnNotify -> 线程ID:%d\n", std::this_thread::get_id());
 			if (auto Conn = this->GetWork(Buffer_Name); Conn)
 			{
-				std::lock_guard<std::mutex> Guard(m_Mutex);
-				{
-					return Conn->Send(0, pData);
-				}
+				return Conn->Send(0, pData);
 			}
 			return false;
 		}

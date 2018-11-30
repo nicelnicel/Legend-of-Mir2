@@ -8,6 +8,28 @@ namespace Cry
 {
 	namespace Signal
 	{
+		// 优雅的重置缓冲区
+
+		class WorkLeave
+		{
+		public:
+			WorkLeave() = default;
+			WorkLeave(evpp::Buffer * pData) : m_pData(pData)
+			{
+
+			}
+			~WorkLeave()
+			{
+				m_pData->Reset();
+				DebugMsg("当前大小：%d 剩余长度：%d\n", m_pData->size(), m_pData->length());
+			}
+		private:
+			evpp::Buffer*												m_pData;
+		private:
+			WorkLeave(const WorkLeave &) = default;
+			WorkLeave &operator=(const WorkLeave &) = default;
+		};
+
 		class ServiceInterface
 		{
 		public:

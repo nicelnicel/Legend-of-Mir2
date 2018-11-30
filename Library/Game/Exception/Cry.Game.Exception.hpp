@@ -53,10 +53,9 @@ namespace Cry
 					break;
 				}
 				}
-				// 
 				return ExceptionCode;
 			}
-			std::string & Info() { return m_lpszString; };
+			lPCString lpszString() { return m_lpszString.c_str(); };
 		private:
 			std::string				m_lpszString;
 		};

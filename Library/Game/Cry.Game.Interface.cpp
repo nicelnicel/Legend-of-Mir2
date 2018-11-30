@@ -3,6 +3,7 @@
 #include <Game/Initialize/Cry.Game.Initialize.h>
 #include <StringXor.h>
 #include <Game/Exception/Cry.Game.Exception.hpp>
+#include <detours.h>
 namespace Cry
 {
 	namespace Game
@@ -13,7 +14,7 @@ namespace Cry
 		}
 		Interface::~Interface()
 		{
-			m_DataBase = nullptr;
+			
 		}
 		u32 Interface::GetPointer(lPCString lpszString)
 		{
@@ -25,9 +26,9 @@ namespace Cry
 			{
 				DebugMsg("%s:%s\n", __FUNCTION__, lpszExceptionString.c_str());
 			}
-			catch(Cry::Game::Exception & e)
+			catch(Cry::Game::Exception & ex)
 			{
-				DebugMsg("%s:%s\n", __FUNCTION__, e.Info().c_str());
+				DebugMsg("%s:%s\n", __FUNCTION__, ex.lpszString());
 			}
 			return 0;
 		}
@@ -40,21 +41,7 @@ namespace Cry
 			m_DataBase = nullptr;
 			m_Interface.reset();
 		}
-		u32 InterfaceEx::ExceptionFunction(u32 dwExceptionCode)
-		{
-			u32 ExceptionCode = EXCEPTION_CONTINUE_SEARCH;
-			switch (dwExceptionCode)
-			{
-			case EXCEPTION_INVALID_DISPOSITION:
-			case EXCEPTION_BREAKPOINT:
-			case EXCEPTION_ACCESS_VIOLATION:
-			case EXCEPTION_FLT_STACK_CHECK:
-			case EXCEPTION_STACK_OVERFLOW: ExceptionCode = EXCEPTION_EXECUTE_HANDLER; break;
-			default: break;
-			}
-			return ExceptionCode;
-		}
-		bool InterfaceEx::SendCmd(lPCString lpszString)
+		bool InterfaceEx::SendCmd(lPString lpszString)
 		{
 			__try
 			{

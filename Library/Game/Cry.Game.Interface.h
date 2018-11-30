@@ -29,9 +29,7 @@ namespace Cry
 		public:
 			InterfaceEx(std::shared_ptr<Base::DataBase> & DataBase);
 			~InterfaceEx();
-			bool SendCmd(lPCString lpszString);
-		private:
-			u32 ExceptionFunction(u32 dwExceptionCode);
+			bool SendCmd(lPString lpszString);
 		private:
 			std::shared_ptr<Base::DataBase>							m_DataBase;
 			std::shared_ptr<Game::Interface>						m_Interface;

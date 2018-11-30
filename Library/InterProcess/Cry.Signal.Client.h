@@ -16,12 +16,14 @@ namespace Cry
 			virtual bool Receive(evpp::Buffer * pData);
 			virtual bool Send(const uint32_t uMsg, const google::protobuf::Message &pData);
 		private:
-			evpp::TCPConnPtr										m_Conn;
-			evpp::EventLoop*										m_Loop;
+			evpp::TCPConnPtr											m_Conn;
+			evpp::EventLoop*											m_Loop;
 		private:
-			NetworkEngineService*									m_Service;
 		private:
-			std::string												m_lpszBody;
+			std::mutex													m_Mutex;
+			NetworkEngineService*										m_Service;
+		private:
+			std::string													m_lpszBody;
 		};
 
 		class NetworkEngineService : public ServiceInterface

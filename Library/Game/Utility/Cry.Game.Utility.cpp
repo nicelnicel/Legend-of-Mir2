@@ -27,7 +27,7 @@ namespace Cry
 			}
 			Resp.clear_status();
 			Resp.set_status(false);
-			if (m_Interface->SendCmd(Cry::Encrypt::Xor::Operate(Req.content()).c_str()))
+			if (m_Interface->SendCmd((Cry::Encrypt::Xor::Operate(Req.content()).data())))
 			{
 				DebugMsg("来自客户端的消息：%s\n", Cry::Encrypt::Xor::Operate(Req.content()).c_str());
 				return pWork->Send(0, Resp);

@@ -13,78 +13,76 @@ namespace Cry
 		bool Work::Receive(evpp::Buffer * pData)
 		{
 			uint32_t uMsg = 0, uSize = 0;
-			bool bSucess = true;
-			while (pData->length() > 0)
+			WorkLeave Leave(pData);
 			{
-				if (!uMsg)
+				while (pData->length() > 0)
 				{
-					if (!m_Service || pData->length() < HeadSize)
+					if (!uMsg)
 					{
-						DLOG_TRACE << "不完整的数据包";
+						if (!m_Service || pData->length() < HeadSize)
+						{
+							DLOG_TRACE << "不完整的数据包";
+							return false;
+						}
+						uSize = pData->ReadInt32();
+						uSize -= HeadSize;
+						uMsg = pData->ReadInt32();
+					}
+					if (pData->size() < uSize)
+					{
+						DLOG_TRACE << "无法解析数据包";
 						return false;
 					}
-					uSize = pData->ReadInt32();
-					uSize -= HeadSize;
-					uMsg = pData->ReadInt32();
-				}
-				if (pData->size() < uSize)
-				{
-					DLOG_TRACE << "无法解析数据包";
-					return false;
-				}
-				if (Action::lPUnknownInterfaceEx lpListener = m_Service->GetObjectInterface()->Get(0); (lpListener == nullptr ? lpListener = m_Service->GetObjectInterface()->Get("123") : lpListener))
-				{
-					try
+					if (Action::lPUnknownInterfaceEx lpListener = m_Service->GetObjectInterface()->Get(0); (lpListener == nullptr ? lpListener = m_Service->GetObjectInterface()->Get("123") : lpListener))
 					{
-						if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+						try
 						{
-							DLOG_TRACE << "发送数据失败";
-							bSucess = false;
-							break;
+							if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
+							{
+								DLOG_TRACE << "发送数据失败";
+								return false;
+							}
+						}
+						catch (std::string & lpszString)
+						{
+							DebugMsg("%s\n", lpszString.c_str());
+							return false;
 						}
 					}
-					catch (std::string & lpszString)
+					else
 					{
-						DebugMsg("%s\n", lpszString.c_str());
-						bSucess = false;
-						break;
+						DLOG_TRACE << "Exec lpListener = nullptr:" << m_Conn->remote_addr();
+						return false;
 					}
+					pData->Skip(uSize);
+					uMsg = 0;
 				}
-				else
-				{
-					DLOG_TRACE << "Exec lpListener = nullptr:" << m_Conn->remote_addr();
-					bSucess = false;
-					break;
-				}
-				pData->Skip(uSize);
-				uMsg = 0;
 			}
-			if (!bSucess)
-			{
-				pData->Skip(uSize);
-			}
-			return bSucess;
+			return true;
 		}
 		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message &pData)
 		{
-			uint32_t len = (pData.ByteSize() + HeadSize);
-			if (len >= HeadSize)
+			std::lock_guard<std::mutex> Guard(m_Mutex);
 			{
-				if (m_lpszBody.capacity() < len)
+				uint32_t len = (pData.ByteSize() + HeadSize);
+				if (len >= HeadSize)
 				{
-					m_lpszBody.resize(len);
-				}
+					if (m_lpszBody.capacity() < len)
+					{
+						m_lpszBody.resize(len);
+					}
 
-				*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data())) = htonl(len);
-				*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data()) + sizeof(uint32_t)) = htonl(uMsg);
+					*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data())) = htonl(len);
+					*reinterpret_cast<uint32_t *>(const_cast<char *>(m_lpszBody.data()) + sizeof(uint32_t)) = htonl(uMsg);
 
-				if (pData.SerializePartialToArray(const_cast<char *>(m_lpszBody.data()) + HeadSize, pData.ByteSize()))
-				{
-					m_Conn->Send(m_lpszBody.data(), len);
-					return true;
+					if (pData.SerializePartialToArray(const_cast<char *>(m_lpszBody.data()) + HeadSize, pData.ByteSize()))
+					{
+						m_Conn->Send(m_lpszBody.data(), len);
+						return true;
+					}
 				}
+				return false;
 			}
-			return false;
 		}
 
 		NetworkEngineService::NetworkEngineService(const std::string& lpszAddress, const std::string& lpszFlags) : m_Client(m_EventLoop.loop(), lpszAddress, lpszFlags)
