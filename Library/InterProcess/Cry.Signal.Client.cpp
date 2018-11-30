@@ -1,5 +1,6 @@
 ﻿#include <Global>
 #include <InterProcess/Cry.Signal.Client.h>
+#include <Exception/Cry.Exception.hpp>
 namespace Cry
 {
 	namespace Signal
@@ -12,9 +13,9 @@ namespace Cry
 		}
 		bool Work::Receive(evpp::Buffer * pData)
 		{
-			uint32_t uMsg = 0, uSize = 0;
-			WorkLeave Leave(pData);
+			OnMessageLeave Leave(pData);
 			{
+				uint32_t uMsg = 0, uSize = 0;
 				while (pData->length() > 0)
 				{
 					if (!uMsg)
@@ -43,9 +44,9 @@ namespace Cry
 								return false;
 							}
 						}
-						catch (std::string & lpszString)
+						catch (Cry::Exception & ex)
 						{
-							DebugMsg("%s\n", lpszString.c_str());
+							DebugMsg("%s\n", ex.lpszString());
 							return false;
 						}
 					}

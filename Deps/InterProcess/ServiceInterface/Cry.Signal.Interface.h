@@ -10,15 +10,15 @@ namespace Cry
 	{
 		// 优雅的重置缓冲区
 
-		class WorkLeave
+		class OnMessageLeave
 		{
 		public:
-			WorkLeave() = default;
-			WorkLeave(evpp::Buffer * pData) : m_pData(pData)
+			OnMessageLeave() = default;
+			OnMessageLeave(evpp::Buffer * pData) : m_pData(pData)
 			{
 
 			}
-			~WorkLeave()
+			~OnMessageLeave()
 			{
 				m_pData->Reset();
 				DebugMsg("当前大小：%d 剩余长度：%d\n", m_pData->size(), m_pData->length());
@@ -26,8 +26,8 @@ namespace Cry
 		private:
 			evpp::Buffer*												m_pData;
 		private:
-			WorkLeave(const WorkLeave &) = default;
-			WorkLeave &operator=(const WorkLeave &) = default;
+			OnMessageLeave(const OnMessageLeave &) = default;
+			OnMessageLeave &operator=(const OnMessageLeave &) = default;
 		};
 
 		class ServiceInterface

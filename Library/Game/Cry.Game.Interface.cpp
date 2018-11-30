@@ -2,7 +2,7 @@
 #include <Game/Cry.Game.Interface.h>
 #include <Game/Initialize/Cry.Game.Initialize.h>
 #include <StringXor.h>
-#include <Game/Exception/Cry.Game.Exception.hpp>
+#include <Exception/Cry.Exception.hpp>
 #include <detours.h>
 namespace Cry
 {
@@ -26,7 +26,7 @@ namespace Cry
 			{
 				DebugMsg("%s:%s\n", __FUNCTION__, lpszExceptionString.c_str());
 			}
-			catch(Cry::Game::Exception & ex)
+			catch(Cry::Exception & ex)
 			{
 				DebugMsg("%s:%s\n", __FUNCTION__, ex.lpszString());
 			}
@@ -51,7 +51,7 @@ namespace Cry
 				// 结束
 				CryVirtualQueryMemory(lPCString, m_Interface->GetPointer("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00")) = 0;
 			}
-			__except (Cry::Game::Exception::ExceptionHandler(GetExceptionCode()))
+			__except (Cry::Exception::ExceptionHandler(GetExceptionCode()))
 			{
 				DebugMsg("Structured Exception Handling -> %s\n", __FUNCTION__);
 			}

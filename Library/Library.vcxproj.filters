@@ -132,7 +132,7 @@
     <ClInclude Include="..\Deps\Public\Cry.Import.Port.h">
       <Filter>头文件\Public</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Exception\Cry.Game.Exception.hpp">
+    <ClInclude Include="..\Deps\InterProcess\Exception\Cry.Exception.hpp">
       <Filter>头文件\Exception</Filter>
     </ClInclude>
   </ItemGroup>

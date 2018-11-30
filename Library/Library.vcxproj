@@ -170,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="..\Deps\InterProcess\Action\Cry.Action.Interface.h" />
     <ClInclude Include="..\Deps\InterProcess\Action\Import\Cry.IAction.hpp" />
+    <ClInclude Include="..\Deps\InterProcess\Exception\Cry.Exception.hpp" />
     <ClInclude Include="..\Deps\InterProcess\Import\Cry.Event.hpp" />
     <ClInclude Include="..\Deps\InterProcess\Import\Cry.Glog.hpp" />
     <ClInclude Include="..\Deps\InterProcess\Import\Cry.Proto.hpp" />
@@ -180,7 +181,6 @@
     <ClInclude Include="..\Deps\Public\Utility\Cry.Utility.Helper.hpp" />
     <ClInclude Include="Entrance.h" />
     <ClInclude Include="Game\Cry.Game.Interface.h" />
-    <ClInclude Include="Game\Exception\Cry.Game.Exception.hpp" />
     <ClInclude Include="Game\Initialize\Cry.Game.Initialize.h" />
     <ClInclude Include="Game\Utility\Cry.Game.Utility.h" />
     <ClInclude Include="Import\Memory\Cry.Game.Compare.hpp" />

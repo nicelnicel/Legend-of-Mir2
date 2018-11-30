@@ -4,6 +4,7 @@
 #include <SendCmd.pb.h>
 #include <Import/Memory/Cry.Game.Compare.hpp>
 #include <Game/Cry.Game.Interface.h>
+#include <Exception/Cry.Exception.hpp>
 namespace Cry
 {
 	namespace Action
@@ -23,7 +24,7 @@ namespace Cry
 			SocketData::CmdResponse Resp;
 			if (!Req.ParseFromArray(pData, uSize))
 			{
-				throw std::string("解析数据包出现严重错误");
+				throw Cry::Exception("解析数据包出现严重错误");
 			}
 			Resp.clear_status();
 			Resp.set_status(false);

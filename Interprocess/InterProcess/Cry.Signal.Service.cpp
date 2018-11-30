@@ -16,9 +16,9 @@ namespace Cry
 		}
 		bool Work::Receive(evpp::Buffer * pData)
 		{
-			uint32_t uMsg = 0, uSize = 0;
-			WorkLeave Leave(pData);
+			OnMessageLeave Leave(pData);
 			{
+				uint32_t uMsg = 0, uSize = 0;
 				while (pData->length() > 0)
 				{
 					if (!uMsg)
