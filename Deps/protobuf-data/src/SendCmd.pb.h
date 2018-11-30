@@ -150,25 +150,32 @@ class CmdRequest : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // string Content = 1;
+  // bytes Content = 2;
   void clear_content();
-  static const int kContentFieldNumber = 1;
+  static const int kContentFieldNumber = 2;
   const ::std::string& content() const;
   void set_content(const ::std::string& value);
   #if LANG_CXX11
   void set_content(::std::string&& value);
   #endif
   void set_content(const char* value);
-  void set_content(const char* value, size_t size);
+  void set_content(const void* value, size_t size);
   ::std::string* mutable_content();
   ::std::string* release_content();
   void set_allocated_content(::std::string* content);
+
+  // uint32 Timer = 1;
+  void clear_timer();
+  static const int kTimerFieldNumber = 1;
+  ::google::protobuf::uint32 timer() const;
+  void set_timer(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:SocketData.CmdRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr content_;
+  ::google::protobuf::uint32 timer_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_SendCmd_2eproto::TableStruct;
 };
@@ -286,7 +293,21 @@ class CmdResponse : public ::google::protobuf::Message /* @@protoc_insertion_poi
 #endif  // __GNUC__
 // CmdRequest
 
-// string Content = 1;
+// uint32 Timer = 1;
+inline void CmdRequest::clear_timer() {
+  timer_ = 0u;
+}
+inline ::google::protobuf::uint32 CmdRequest::timer() const {
+  // @@protoc_insertion_point(field_get:SocketData.CmdRequest.Timer)
+  return timer_;
+}
+inline void CmdRequest::set_timer(::google::protobuf::uint32 value) {
+  
+  timer_ = value;
+  // @@protoc_insertion_point(field_set:SocketData.CmdRequest.Timer)
+}
+
+// bytes Content = 2;
 inline void CmdRequest::clear_content() {
   content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -313,7 +334,7 @@ inline void CmdRequest::set_content(const char* value) {
   content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:SocketData.CmdRequest.Content)
 }
-inline void CmdRequest::set_content(const char* value, size_t size) {
+inline void CmdRequest::set_content(const void* value, size_t size) {
   
   content_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));

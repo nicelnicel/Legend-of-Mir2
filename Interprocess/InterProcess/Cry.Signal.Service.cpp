@@ -1,5 +1,4 @@
 #include <Global>
-
 #include <InterProcess/Cry.Signal.Service.h>
 #include <Cry.FirstLication.h>
 #include <SendCmd.pb.h>
@@ -18,14 +17,17 @@ namespace Cry
 			uint32_t uMsg = 0, uSize = 0;
 			while (pData->length() > 0)
 			{
-				if (!m_Service || pData->length() < HeadSize)
+				if (!uMsg)
 				{
-					DLOG_TRACE << "Recv DataSize < HeardSize Error:" << m_Conn->remote_addr();
-					return false;
+					if (!m_Service || pData->length() < HeadSize)
+					{
+						DLOG_TRACE << "Recv DataSize < HeardSize Error:" << m_Conn->remote_addr();
+						return false;
+					}
+					uSize = pData->ReadInt32();
+					uSize -= HeadSize;
+					uMsg = pData->ReadInt32();
 				}
-				uSize = pData->ReadInt32();
-				uSize -= HeadSize;
-				uMsg = pData->ReadInt32();
 				if (pData->size() < uSize)
 				{
 					DLOG_TRACE << "Recv DataSize < MessageSize:" << m_Conn->remote_addr();
@@ -53,13 +55,14 @@ namespace Cry
 					return false;
 				}
 				pData->Skip(uSize);
-				uSize = 0;
+				uMsg = 0;
 			}
 			return true;
 		}
 		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message &pData)
 		{
-			if(uint32_t len = (pData.ByteSize() + HeadSize); len >= HeadSize)
+			uint32_t len = (pData.ByteSize() + HeadSize);
+			if(len >= HeadSize)
 			{
 				if (m_lpszBody.capacity() < len)
 				{

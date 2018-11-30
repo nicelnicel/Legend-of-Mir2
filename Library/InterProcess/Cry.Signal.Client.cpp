@@ -13,16 +13,20 @@ namespace Cry
 		bool Work::Receive(evpp::Buffer * pData)
 		{
 			uint32_t uMsg = 0, uSize = 0;
+			bool bSucess = true;
 			while (pData->length() > 0)
 			{
-				if (!m_Service || pData->length() < HeadSize)
+				if (!uMsg)
 				{
-					DLOG_TRACE << "不完整的数据包";
-					return false;
+					if (!m_Service || pData->length() < HeadSize)
+					{
+						DLOG_TRACE << "不完整的数据包";
+						return false;
+					}
+					uSize = pData->ReadInt32();
+					uSize -= HeadSize;
+					uMsg = pData->ReadInt32();
 				}
-				uSize = pData->ReadInt32();
-				uSize -= HeadSize;
-				uMsg = pData->ReadInt32();
 				if (pData->size() < uSize)
 				{
 					DLOG_TRACE << "无法解析数据包";
@@ -35,28 +39,36 @@ namespace Cry
 						if (!lpListener->OnSocketData(shared_from_this(), uMsg, pData->data(), uSize))
 						{
 							DLOG_TRACE << "发送数据失败";
-							return false;
+							bSucess = false;
+							break;
 						}
 					}
-					catch (std::exception & e)
+					catch (std::string & lpszString)
 					{
-						DebugMsg("%s\n", e.what());
-						return false;
+						DebugMsg("%s\n", lpszString.c_str());
+						bSucess = false;
+						break;
 					}
 				}
 				else
 				{
 					DLOG_TRACE << "Exec lpListener = nullptr:" << m_Conn->remote_addr();
-					return false;
+					bSucess = false;
+					break;
 				}
 				pData->Skip(uSize);
-				uSize = 0;
+				uMsg = 0;
 			}
-			return true;
+			if (!bSucess)
+			{
+				pData->Skip(uSize);
+			}
+			return bSucess;
 		}
 		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message &pData)
 		{
-			if (uint32_t len = (pData.ByteSize() + HeadSize); len >= HeadSize)
+			uint32_t len = (pData.ByteSize() + HeadSize);
+			if (len >= HeadSize)
 			{
 				if (m_lpszBody.capacity() < len)
 				{

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="F:\My Source Program\Legend of Mir2\Deps\protobuf-3.6.0\src\google\protobuf\compiler\js\embed.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="F:\My Source Program\Legend of Mir2\Deps\protobuf-3.6.0\cmake\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0AC939AB-E67B-34E2-AC96-E17101E75C6D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

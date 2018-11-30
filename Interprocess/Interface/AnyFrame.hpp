@@ -13,7 +13,7 @@ public:
 		{
 			return std::any_cast<_Valty>(std::move(m_pair.emplace(std::pair(uId, _Val)).first->second));
 		}
-		throw std::string("创建窗口组件错误");
+		throw std::string("鍒涘缓绐楀彛缁勪欢閿欒");
 	};
 	template<class _Valty>
 	auto find(uint32_t uId) -> _Valty

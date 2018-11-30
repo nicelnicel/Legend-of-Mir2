@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\My Source Program\Legend of Mir2\Deps\protobuf-3.6.0\vsprojects\CMakeFiles\a1ceae60ff38a217e5a8da817d3e41e5\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C98AFB08-5D19-3349-BE0B-F56BA2868740}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

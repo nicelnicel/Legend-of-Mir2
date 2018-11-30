@@ -1,6 +1,7 @@
-#include <Global>
+﻿#include <Global>
 #include <Game/Cry.Game.Interface.h>
 #include <Game/Initialize/Cry.Game.Initialize.h>
+#include <StringXor.h>
 namespace Cry
 {
 	namespace Action
@@ -15,11 +16,11 @@ namespace Cry
 			{
 				m_DataBase = nullptr;
 			}
-			u32 Interface::GetPointer(std::string lpszString)
+			u32 Interface::GetPointer(lPCString lpszString)
 			{
 				try
 				{
-					return CryVirtualQueryMemory(u32, CryVirtualQueryMemory(u32, m_DataBase->Get(lpszString)));
+					return CryVirtualQueryMemory(u32, m_DataBase->Get(lpszString));
 				}
 				catch (std::string & lpszString)
 				{
@@ -36,9 +37,20 @@ namespace Cry
 				m_DataBase = nullptr;
 				m_Interface.reset();
 			}
-			bool InterfaceEx::SendCmd(std::string lpszString)
+			u32 InterfaceEx::ExceptionFunction(u32 dwExceptionCode)
 			{
-				CryVirtualQueryMemory(i8 *, m_Interface->GetPointer("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00")) = lpszString.data();
+				return (dwExceptionCode == STATUS_STACK_OVERFLOW) ? EXCEPTION_EXECUTE_HANDLER : EXCEPTION_CONTINUE_SEARCH;
+			}
+			bool InterfaceEx::SendCmd(lPCString lpszString)
+			{
+				__try
+				{
+					CryVirtualQueryMemory(lPCString, m_Interface->GetPointer("\xAE\x79\xD1\x03\xB6\x05\xB5\x56\x00\x00")) = lpszString;
+				}
+				__except(this->ExceptionFunction(GetExceptionCode()))
+				{
+					DebugMsg("Structured Exception Handling -> %s\n", __FUNCTION__);
+				}
 				return true;
 			}
 		};

@@ -1,9 +1,9 @@
 #include <StringXor.h>
 namespace Cry
 {
-	namespace Text
+	namespace Encrypt
 	{
-		std::string Xor::Operate(std::string lpszSource) noexcept
+		std::string Xor::Operate(std::string lpszSource)
 		{
 			for (uint32_t i = 0; i < lpszSource.size(); ++i)
 			{
@@ -17,6 +17,10 @@ namespace Cry
 				}
 			}
 			return lpszSource;
+		}
+		uint32_t Xor::Operate(uint32_t uSource)
+		{
+			return (CrcTable[((sizeof(CrcTable) / sizeof(uint32_t)) & 0xFF) >> 8] ^ uSource) ^ 0xFFFFFFFF;
 		}
 	}
 }

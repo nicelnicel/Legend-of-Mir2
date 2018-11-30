@@ -1,4 +1,4 @@
-#include <Global>
+ï»¿#include <Global>
 #include <Game/Utility/Cry.Game.Utility.h>
 #include <Interprocess/Cry.Signal.Client.h>
 #include <SendCmd.pb.h>
@@ -23,13 +23,18 @@ namespace Cry
 			{
 				SocketData::CmdRequest Req;
 				SocketData::CmdResponse Resp;
-				if (!Req.ParsePartialFromArray(pData, uSize))
+				if (!Req.ParseFromArray(pData, uSize))
 				{
-					throw std::string("½âÎöÊý¾Ý°ü³öÏÖÑÏÖØ´íÎó");
-				}
+					throw std::string("è§£æžæ•°æ®åŒ…å‡ºçŽ°ä¸¥é‡é”™è¯¯");
+				} 
 				Resp.clear_status();
 				Resp.set_status(false);
-				return pWork->Send(0, Resp);
+				if (m_Interface->SendCmd(Cry::Encrypt::Xor::Operate(Req.content()).c_str()))
+				{
+					DebugMsg("æ¥è‡ªå®¢æˆ·ç«¯çš„æ¶ˆæ¯ï¼š%s\n", Cry::Encrypt::Xor::Operate(Req.content()).c_str());
+					return pWork->Send(0, Resp);
+				}
+				return false;
 			}
 		};
 	};

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include <Interface/AnyFrame.hpp>
 #include <QWidget>
 #include <QtWin>
@@ -33,21 +33,21 @@ namespace QWindows
 		~FirstLication();
 		enum
 		{
-			Ö÷Ìå¿ò¼Ü,
-			Ö÷Ìå±êÇ©,
-			»ù±¾ÉèÖÃ,
-			±£»¤ÉèÖÃ,
-			Ë®Æ½¿ò¼Ü,
-			Ë®Æ½²¼¾Ö,
-			¹¥»÷²»¿¨,
-			Ä§·¨²»¿¨,
-			³¬¼¶²»¿¨,
+			ä¸»ä½“æ¡†æ¶,
+			ä¸»ä½“æ ‡ç­¾,
+			åŸºæœ¬è®¾ç½®,
+			ä¿æŠ¤è®¾ç½®,
+			æ°´å¹³æ¡†æ¶,
+			æ°´å¹³å¸ƒå±€,
+			æ”»å‡»ä¸å¡,
+			é­”æ³•ä¸å¡,
+			è¶…çº§ä¸å¡,
 
-			²âÊÔ¿ò¼Ü = 1000,
-			²âÊÔ²¼¾Ö,
-			×¢ÈëÏûÏ¢,
-			Ğ¶ÔØÏûÏ¢,
-			·¢ËÍÏûÏ¢,
+			æµ‹è¯•æ¡†æ¶ = 1000,
+			æµ‹è¯•å¸ƒå±€,
+			æ³¨å…¥æ¶ˆæ¯,
+			å¸è½½æ¶ˆæ¯,
+			å‘é€æ¶ˆæ¯,
 		};
 	private:
 		void OnInjection();
@@ -69,7 +69,7 @@ namespace QWindows
 		QWidget										*m_WidgetLayout;
 		QCheckBox									*m_CheckBox[3];
 		QHBoxLayout									*m_HBoxLayout;
-		// ²âÊÔ¿ò¼ÜÊ¹ÓÃ
+		// æµ‹è¯•æ¡†æ¶ä½¿ç”¨
 		QWidget										*m_TestWidget;
 		QHBoxLayout									*m_TestLayout;
 		QPushButton									*m_PushButton[3];

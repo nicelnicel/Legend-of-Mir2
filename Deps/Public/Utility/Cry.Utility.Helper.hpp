@@ -1,4 +1,4 @@
-#if !defined(_HELPER_HEAD_)
+﻿#if !defined(_HELPER_HEAD_)
 /* Star */
 #define _HELPER_HEAD_
 #pragma once
@@ -14,7 +14,7 @@
 #define getCope(x, a, b)							(x >= a && x <= b) 
 #define getBits(x)									(getCope(x, '0', '9') ? (x - '0') : ((x & (~0x20)) - 'A' + 0xa))
 #define getByte(x)									(getBits(x[0]) << 4 | getBits(x[1]))
-#define CryVirtualQueryMemory(_Type, x)			*(_Type *)(x)
+#define CryVirtualQueryMemory(_Type, x)				*(_Type *)(x)
 
 #define MetaType(_Type) qRegisterMetaType<_Type>(#_Type);
 

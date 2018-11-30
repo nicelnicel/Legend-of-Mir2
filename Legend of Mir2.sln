@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Interprocess", "Interprocess\Interprocess.vcxproj", "{C7D3B729-89BA-4724-A533-5B2322CD2D65}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InterProcess", "Interprocess\Interprocess.vcxproj", "{C7D3B729-89BA-4724-A533-5B2322CD2D65}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication", "ConsoleApplication\ConsoleApplication.vcxproj", "{127B1098-D3CF-4C78-A5DC-0FA3836FCF8E}"
 EndProject
@@ -33,9 +33,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glog", "Deps\glog-master\vs
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Protobuf", "Protobuf", "{8D3A6F90-B398-43A1-AD20-1EE98B3DE141}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libprotobuf", "Deps\protobuf-3.6.1\vsprojects\libprotobuf.vcxproj", "{AB10C4C9-2739-3746-BECA-5BC78D61A31A}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protobuf_data", "Deps\protobuf-data\vsprojects\protobuf_data.vcxproj", "{FF9F311A-2D85-43D9-89C9-8631000F2C75}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libprotobuf", "Deps\protobuf-3.6.1\vsprojects\libprotobuf.vcxproj", "{AB10C4C9-2739-3746-BECA-5BC78D61A31A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,12 +115,6 @@ Global
 		{22DB63C2-1D4C-3D93-AF72-E1FE4A8D8814}.Release|x64.ActiveCfg = Release|Win32
 		{22DB63C2-1D4C-3D93-AF72-E1FE4A8D8814}.Release|x86.ActiveCfg = Release|Win32
 		{22DB63C2-1D4C-3D93-AF72-E1FE4A8D8814}.Release|x86.Build.0 = Release|Win32
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Debug|x64.ActiveCfg = Debug|Win32
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Debug|x86.ActiveCfg = Debug|Win32
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Debug|x86.Build.0 = Debug|Win32
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Release|x64.ActiveCfg = Release|Win32
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Release|x86.ActiveCfg = Release|Win32
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Release|x86.Build.0 = Release|Win32
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75}.Debug|x64.ActiveCfg = Debug|x64
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75}.Debug|x64.Build.0 = Debug|x64
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75}.Debug|x86.ActiveCfg = Debug|Win32
@@ -129,6 +123,12 @@ Global
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75}.Release|x64.Build.0 = Release|x64
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75}.Release|x86.ActiveCfg = Release|Win32
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75}.Release|x86.Build.0 = Release|Win32
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Debug|x64.ActiveCfg = Debug|Win32
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Debug|x86.ActiveCfg = Debug|Win32
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Debug|x86.Build.0 = Debug|Win32
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Release|x64.ActiveCfg = Release|Win32
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Release|x86.ActiveCfg = Release|Win32
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,8 +140,8 @@ Global
 		{4485B57A-DD22-3E42-A8F2-C7303D34DFD4} = {F19E25B6-DC0C-49BD-9A72-796F5B9A125B}
 		{4877AA94-AD55-407F-9ED3-D4503FAB2A7F} = {257E587B-5613-4A76-A80D-7F7C3A1699BE}
 		{22DB63C2-1D4C-3D93-AF72-E1FE4A8D8814} = {071ED5D2-1885-4770-B053-B9280D2A3889}
-		{AB10C4C9-2739-3746-BECA-5BC78D61A31A} = {8D3A6F90-B398-43A1-AD20-1EE98B3DE141}
 		{FF9F311A-2D85-43D9-89C9-8631000F2C75} = {8D3A6F90-B398-43A1-AD20-1EE98B3DE141}
+		{AB10C4C9-2739-3746-BECA-5BC78D61A31A} = {8D3A6F90-B398-43A1-AD20-1EE98B3DE141}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52CDDEFD-719A-426C-A783-B089E4AC71B7}

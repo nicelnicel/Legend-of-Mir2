@@ -73,6 +73,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SocketData::CmdRequest, timer_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SocketData::CmdRequest, content_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::SocketData::CmdResponse, _internal_metadata_),
@@ -83,7 +84,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::SocketData::CmdRequest)},
-  { 6, -1, sizeof(::SocketData::CmdResponse)},
+  { 7, -1, sizeof(::SocketData::CmdResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -112,12 +113,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rSendCmd.proto\022\nSocketData\"\035\n\nCmdReques"
-      "t\022\017\n\007Content\030\001 \001(\t\"\035\n\013CmdResponse\022\016\n\006Sta"
-      "tus\030\001 \001(\010b\006proto3"
+      "\n\rSendCmd.proto\022\nSocketData\",\n\nCmdReques"
+      "t\022\r\n\005Timer\030\001 \001(\r\022\017\n\007Content\030\002 \001(\014\"\035\n\013Cmd"
+      "Response\022\016\n\006Status\030\001 \001(\010b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 97);
+      descriptor, 112);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "SendCmd.proto", &protobuf_RegisterTypes);
 }
@@ -140,6 +141,7 @@ namespace SocketData {
 void CmdRequest::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int CmdRequest::kTimerFieldNumber;
 const int CmdRequest::kContentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -158,11 +160,13 @@ CmdRequest::CmdRequest(const CmdRequest& from)
   if (from.content().size() > 0) {
     content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
   }
+  timer_ = from.timer_;
   // @@protoc_insertion_point(copy_constructor:SocketData.CmdRequest)
 }
 
 void CmdRequest::SharedCtor() {
   content_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  timer_ = 0u;
 }
 
 CmdRequest::~CmdRequest() {
@@ -195,6 +199,7 @@ void CmdRequest::Clear() {
   (void) cached_has_bits;
 
   content_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  timer_ = 0u;
   _internal_metadata_.Clear();
 }
 
@@ -208,16 +213,26 @@ bool CmdRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string Content = 1;
+      // uint32 Timer = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &timer_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes Content = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_content()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->content().data(), static_cast<int>(this->content().length()),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "SocketData.CmdRequest.Content"));
         } else {
           goto handle_unusual;
         }
@@ -250,14 +265,15 @@ void CmdRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string Content = 1;
+  // uint32 Timer = 1;
+  if (this->timer() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->timer(), output);
+  }
+
+  // bytes Content = 2;
   if (this->content().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content().data(), static_cast<int>(this->content().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "SocketData.CmdRequest.Content");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->content(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->content(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -274,15 +290,16 @@ void CmdRequest::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string Content = 1;
+  // uint32 Timer = 1;
+  if (this->timer() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->timer(), target);
+  }
+
+  // bytes Content = 2;
   if (this->content().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->content().data(), static_cast<int>(this->content().length()),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "SocketData.CmdRequest.Content");
     target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->content(), target);
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->content(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -302,11 +319,18 @@ size_t CmdRequest::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // string Content = 1;
+  // bytes Content = 2;
   if (this->content().size() > 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
         this->content());
+  }
+
+  // uint32 Timer = 1;
+  if (this->timer() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->timer());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -340,6 +364,9 @@ void CmdRequest::MergeFrom(const CmdRequest& from) {
 
     content_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.content_);
   }
+  if (from.timer() != 0) {
+    set_timer(from.timer());
+  }
 }
 
 void CmdRequest::CopyFrom(const ::google::protobuf::Message& from) {
@@ -368,6 +395,7 @@ void CmdRequest::InternalSwap(CmdRequest* other) {
   using std::swap;
   content_.Swap(&other->content_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(timer_, other->timer_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

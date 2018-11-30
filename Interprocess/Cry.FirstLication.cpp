@@ -1,4 +1,4 @@
-#include <Global>
+ï»¿#include <Global>
 #include <Cry.FirstLication.h>
 #include <Injection/Message.h>
 #include <InterProcess/Cry.Signal.Service.h>
@@ -10,7 +10,7 @@ namespace QWindows
 	{
 		if (!m_Service->GetObjectInterface()->Add("FirstLication", this))
 		{
-			DebugMsg("¶ÔÏó[%s]ÒÑ¾­´æÔÚ\n", "FirstLication");
+			DebugMsg("å¯¹è±¡[%s]å·²ç»å­˜åœ¨\n", "FirstLication");
 		}
 		this->SetupInterface(this);
 	}
@@ -26,14 +26,14 @@ namespace QWindows
 		{
 			w = 602;
 			h = 400;
-			DebugMsg("Aero:¹Ø±Õ[%d] w:%d h:%d\n", reinterpret_cast<HWND>(this->winId()), w, h);
+			DebugMsg("Aero:å…³é—­[%d] w:%d h:%d\n", reinterpret_cast<HWND>(this->winId()), w, h);
 			QApplication::setStyle(QStyleFactory::create("Fusion"));
 		}
 		else
 		{
 			w = 600;
 			h = 400;
-			DebugMsg("Aero:¿ªÆô[%d] w:%d h:%d\n", reinterpret_cast<HWND>(this->winId()), w, h);
+			DebugMsg("Aero:å¼€å¯[%d] w:%d h:%d\n", reinterpret_cast<HWND>(this->winId()), w, h);
 		}
 		if (this->QWidget::objectName().isEmpty())
 		{
@@ -47,38 +47,38 @@ namespace QWindows
 		this->setFixedSize(QSize(w, h));
 		try
 		{
-			(m_Tab = m_Pair.insert(Ö÷Ìå¿ò¼Ü, new QTabWidget(Parent)))->setObjectName(QString::fromLocal8Bit(_T("Ö÷Ìå±êÇ©")));
-			(m_Widget[0] = m_Pair.insert(»ù±¾ÉèÖÃ, new QWidget(m_Tab)))->setObjectName(QString::fromLocal8Bit(_T("»ù±¾ÉèÖÃ")));
-			(m_Widget[1] = m_Pair.insert(±£»¤ÉèÖÃ, new QWidget(m_Tab)))->setObjectName(QString::fromLocal8Bit(_T("±£»¤ÉèÖÃ")));
-			/* Ë®Æ½²¼¾Ö Star*/
-			(m_WidgetLayout = m_Pair.insert(Ë®Æ½¿ò¼Ü, new QWidget(m_Widget[0])))->setObjectName(QString::fromLocal8Bit(_T("Ë®Æ½¿ò¼Ü")));
-			(m_HBoxLayout = m_Pair.insert(Ë®Æ½²¼¾Ö, new QHBoxLayout(m_WidgetLayout)))->setObjectName(QString::fromLocal8Bit(_T("Ë®Æ½²¼¾Ö")));
-			(m_CheckBox[0] = m_Pair.insert(¹¥»÷²»¿¨, new QCheckBox()))->setObjectName(QString::fromLocal8Bit(_T("¹¥»÷²»¿¨")));
-			(m_CheckBox[1] = m_Pair.insert(Ä§·¨²»¿¨, new QCheckBox()))->setObjectName(QString::fromLocal8Bit(_T("Ä§·¨²»¿¨")));
-			(m_CheckBox[2] = m_Pair.insert(³¬¼¶²»¿¨, new QCheckBox()))->setObjectName(QString::fromLocal8Bit(_T("³¬¼¶²»¿¨")));
-			/* Ë®Æ½²¼¾Ö End*/
-			/* ²âÊÔ²¼¾Ö Star*/
-			(m_TestWidget = m_Pair.insert(²âÊÔ¿ò¼Ü, new QWidget(m_Widget[0])))->setObjectName(QString::fromLocal8Bit(_T("²âÊÔ¿ò¼Ü")));
-			(m_TestLayout = m_Pair.insert(²âÊÔ²¼¾Ö, new QHBoxLayout(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("²âÊÔ²¼¾Ö")));
-			(m_PushButton[0] = m_Pair.insert(×¢ÈëÏûÏ¢, new QPushButton(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("×¢ÈëÏûÏ¢")));
-			(m_PushButton[1] = m_Pair.insert(Ğ¶ÔØÏûÏ¢, new QPushButton(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("Ğ¶ÔØÏûÏ¢")));
-			(m_PushButton[2] = m_Pair.insert(·¢ËÍÏûÏ¢, new QPushButton(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("·¢ËÍÏûÏ¢")));
+			(m_Tab = m_Pair.insert(ä¸»ä½“æ¡†æ¶, new QTabWidget(Parent)))->setObjectName(QString::fromLocal8Bit(_T("ä¸»ä½“æ ‡ç­¾")));
+			(m_Widget[0] = m_Pair.insert(åŸºæœ¬è®¾ç½®, new QWidget(m_Tab)))->setObjectName(QString::fromLocal8Bit(_T("åŸºæœ¬è®¾ç½®")));
+			(m_Widget[1] = m_Pair.insert(ä¿æŠ¤è®¾ç½®, new QWidget(m_Tab)))->setObjectName(QString::fromLocal8Bit(_T("ä¿æŠ¤è®¾ç½®")));
+			/* æ°´å¹³å¸ƒå±€ Star*/
+			(m_WidgetLayout = m_Pair.insert(æ°´å¹³æ¡†æ¶, new QWidget(m_Widget[0])))->setObjectName(QString::fromLocal8Bit(_T("æ°´å¹³æ¡†æ¶")));
+			(m_HBoxLayout = m_Pair.insert(æ°´å¹³å¸ƒå±€, new QHBoxLayout(m_WidgetLayout)))->setObjectName(QString::fromLocal8Bit(_T("æ°´å¹³å¸ƒå±€")));
+			(m_CheckBox[0] = m_Pair.insert(æ”»å‡»ä¸å¡, new QCheckBox()))->setObjectName(QString::fromLocal8Bit(_T("æ”»å‡»ä¸å¡")));
+			(m_CheckBox[1] = m_Pair.insert(é­”æ³•ä¸å¡, new QCheckBox()))->setObjectName(QString::fromLocal8Bit(_T("é­”æ³•ä¸å¡")));
+			(m_CheckBox[2] = m_Pair.insert(è¶…çº§ä¸å¡, new QCheckBox()))->setObjectName(QString::fromLocal8Bit(_T("è¶…çº§ä¸å¡")));
+			/* æ°´å¹³å¸ƒå±€ End*/
+			/* æµ‹è¯•å¸ƒå±€ Star*/
+			(m_TestWidget = m_Pair.insert(æµ‹è¯•æ¡†æ¶, new QWidget(m_Widget[0])))->setObjectName(QString::fromLocal8Bit(_T("æµ‹è¯•æ¡†æ¶")));
+			(m_TestLayout = m_Pair.insert(æµ‹è¯•å¸ƒå±€, new QHBoxLayout(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("æµ‹è¯•å¸ƒå±€")));
+			(m_PushButton[0] = m_Pair.insert(æ³¨å…¥æ¶ˆæ¯, new QPushButton(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("æ³¨å…¥æ¶ˆæ¯")));
+			(m_PushButton[1] = m_Pair.insert(å¸è½½æ¶ˆæ¯, new QPushButton(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("å¸è½½æ¶ˆæ¯")));
+			(m_PushButton[2] = m_Pair.insert(å‘é€æ¶ˆæ¯, new QPushButton(m_TestWidget)))->setObjectName(QString::fromLocal8Bit(_T("å‘é€æ¶ˆæ¯")));
 			{
-				m_Tab->setGeometry(QRect(2, 2, 598, 397));
-				m_Tab->addTab(m_Widget[0], QString::fromLocal8Bit(_T("»ù±¾ÉèÖÃ")));
-				m_Tab->addTab(m_Widget[1], QString::fromLocal8Bit(_T("±£»¤ÉèÖÃ")));
+				m_Tab->setGeometry(QRect(2, 2, 598, 397)); 
+				m_Tab->addTab(m_Widget[0], QString::fromLocal8Bit(_T("åŸºæœ¬è®¾ç½®")));
+				m_Tab->addTab(m_Widget[1], QString::fromLocal8Bit(_T("ä¿æŠ¤è®¾ç½®")));
 				m_Tab->setCurrentIndex(0);
 				m_WidgetLayout->setGeometry(QRect(10, 10, 240, 20));
 				m_HBoxLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
-				m_HBoxLayout->setContentsMargins(0, 0, 0, 0);
+				m_HBoxLayout->setContentsMargins(0, 0, 0, 0); 
 				
-				m_HBoxLayout->addWidget(m_CheckBox[0]);
+				m_HBoxLayout->addWidget(m_CheckBox[0]); 
 				m_HBoxLayout->addWidget(m_CheckBox[1]);
 				m_HBoxLayout->addWidget(m_CheckBox[2]);
 
-				m_CheckBox[0]->setText(QString::fromLocal8Bit(_T("¹¥»÷²»¿¨")));
-				m_CheckBox[1]->setText(QString::fromLocal8Bit(_T("Ä§·¨²»¿¨")));
-				m_CheckBox[2]->setText(QString::fromLocal8Bit(_T("³¬¼¶²»¿¨")));
+				m_CheckBox[0]->setText(QString::fromLocal8Bit(_T("æ”»å‡»ä¸å¡")));
+				m_CheckBox[1]->setText(QString::fromLocal8Bit(_T("é­”æ³•ä¸å¡")));
+				m_CheckBox[2]->setText(QString::fromLocal8Bit(_T("è¶…çº§ä¸å¡")));
 				for (auto &Args : m_CheckBox)
 				{
 					Args->setStyle(QStyleFactory::create(_T("Fusion")));
@@ -91,9 +91,9 @@ namespace QWindows
 				m_TestLayout->addWidget(m_PushButton[1]);
 				m_TestLayout->addWidget(m_PushButton[2]);
 
-				m_PushButton[0]->setText(QString::fromLocal8Bit(_T("×¢ÈëÏûÏ¢")));
-				m_PushButton[1]->setText(QString::fromLocal8Bit(_T("Ğ¶ÔØÏûÏ¢")));
-				m_PushButton[2]->setText(QString::fromLocal8Bit(_T("·¢ËÍÏûÏ¢")));
+				m_PushButton[0]->setText(QString::fromLocal8Bit(_T("æ³¨å…¥æ¶ˆæ¯")));
+				m_PushButton[1]->setText(QString::fromLocal8Bit(_T("å¸è½½æ¶ˆæ¯")));
+				m_PushButton[2]->setText(QString::fromLocal8Bit(_T("å‘é€æ¶ˆæ¯")));
 
 				for (auto &Args : m_PushButton)
 				{
@@ -105,16 +105,16 @@ namespace QWindows
 				QObject::connect(m_PushButton[2], &QPushButton::clicked, this, &FirstLication::OnSend);
 
 				/*
-				1¡¢Qt::AutoConnection£º Ä¬ÈÏÖµ£¬Ê¹ÓÃÕâ¸öÖµÔòÁ¬½ÓÀàĞÍ»áÔÚĞÅºÅ·¢ËÍÊ±¾ö¶¨¡£Èç¹û½ÓÊÕÕßºÍ·¢ËÍÕßÔÚÍ¬Ò»¸öÏß³Ì£¬Ôò×Ô¶¯Ê¹ÓÃQt::DirectConnectionÀàĞÍ¡£Èç¹û½ÓÊÕÕßºÍ·¢ËÍÕß²»ÔÚÒ»¸öÏß³Ì£¬Ôò×Ô¶¯Ê¹ÓÃQt::QueuedConnectionÀàĞÍ¡£
-				2¡¢Qt::DirectConnection£º²Ûº¯Êı»áÔÚĞÅºÅ·¢ËÍµÄÊ±ºòÖ±½Ó±»µ÷ÓÃ£¬²Ûº¯ÊıÔËĞĞÓÚĞÅºÅ·¢ËÍÕßËùÔÚÏß³Ì¡£Ğ§¹û¿´ÉÏÈ¥¾ÍÏñÊÇÖ±½ÓÔÚĞÅºÅ·¢ËÍÎ»ÖÃµ÷ÓÃÁË²Ûº¯Êı¡£Õâ¸öÔÚ¶àÏß³Ì»·¾³ÏÂ±È½ÏÎ£ÏÕ£¬¿ÉÄÜ»áÔì³É±¼À£¡£
-				3¡¢Qt::QueuedConnection£º²Ûº¯ÊıÔÚ¿ØÖÆ»Øµ½½ÓÊÕÕßËùÔÚÏß³ÌµÄÊÂ¼şÑ­»·Ê±±»µ÷ÓÃ£¬²Ûº¯ÊıÔËĞĞÓÚĞÅºÅ½ÓÊÕÕßËùÔÚÏß³Ì¡£·¢ËÍĞÅºÅÖ®ºó£¬²Ûº¯Êı²»»áÁ¢¿Ì±»µ÷ÓÃ£¬µÈµ½½ÓÊÕÕßµÄµ±Ç°º¯ÊıÖ´ĞĞÍê£¬½øÈëÊÂ¼şÑ­»·Ö®ºó£¬²Ûº¯Êı²Å»á±»µ÷ÓÃ¡£¶àÏß³Ì»·¾³ÏÂÒ»°ãÓÃÕâ¸ö¡£
-				4¡¢Qt::BlockingQueuedConnection£º²Ûº¯ÊıµÄµ÷ÓÃÊ±»úÓëQt::QueuedConnectionÒ»ÖÂ£¬²»¹ı·¢ËÍÍêĞÅºÅºó·¢ËÍÕßËùÔÚÏß³Ì»á×èÈû£¬Ö±µ½²Ûº¯ÊıÔËĞĞÍê¡£½ÓÊÕÕßºÍ·¢ËÍÕß¾ø¶Ô²»ÄÜÔÚÒ»¸öÏß³Ì£¬·ñÔò³ÌĞò»áËÀËø¡£ÔÚ¶àÏß³Ì¼äĞèÒªÍ¬²½µÄ³¡ºÏ¿ÉÄÜĞèÒªÕâ¸ö¡£
-				5¡¢Qt::UniqueConnection£ºÕâ¸öflag¿ÉÒÔÍ¨¹ı°´Î»»ò£¨|£©ÓëÒÔÉÏËÄ¸ö½áºÏÔÚÒ»ÆğÊ¹ÓÃ¡£µ±Õâ¸öflagÉèÖÃÊ±£¬µ±Ä³¸öĞÅºÅºÍ²ÛÒÑ¾­Á¬½ÓÊ±£¬ÔÙ½øĞĞÖØ¸´µÄÁ¬½Ó¾Í»áÊ§°Ü¡£Ò²¾ÍÊÇ±ÜÃâÁËÖØ¸´Á¬½Ó¡£
+				1ã€Qt::AutoConnectionï¼š é»˜è®¤å€¼ï¼Œä½¿ç”¨è¿™ä¸ªå€¼åˆ™è¿æ¥ç±»å‹ä¼šåœ¨ä¿¡å·å‘é€æ—¶å†³å®šã€‚å¦‚æœæ¥æ”¶è€…å’Œå‘é€è€…åœ¨åŒä¸€ä¸ªçº¿ç¨‹ï¼Œåˆ™è‡ªåŠ¨ä½¿ç”¨Qt::DirectConnectionç±»å‹ã€‚å¦‚æœæ¥æ”¶è€…å’Œå‘é€è€…ä¸åœ¨ä¸€ä¸ªçº¿ç¨‹ï¼Œåˆ™è‡ªåŠ¨ä½¿ç”¨Qt::QueuedConnectionç±»å‹ã€‚
+				2ã€Qt::DirectConnectionï¼šæ§½å‡½æ•°ä¼šåœ¨ä¿¡å·å‘é€çš„æ—¶å€™ç›´æ¥è¢«è°ƒç”¨ï¼Œæ§½å‡½æ•°è¿è¡Œäºä¿¡å·å‘é€è€…æ‰€åœ¨çº¿ç¨‹ã€‚æ•ˆæœçœ‹ä¸Šå»å°±åƒæ˜¯ç›´æ¥åœ¨ä¿¡å·å‘é€ä½ç½®è°ƒç”¨äº†æ§½å‡½æ•°ã€‚è¿™ä¸ªåœ¨å¤šçº¿ç¨‹ç¯å¢ƒä¸‹æ¯”è¾ƒå±é™©ï¼Œå¯èƒ½ä¼šé€ æˆå¥”æºƒã€‚
+				3ã€Qt::QueuedConnectionï¼šæ§½å‡½æ•°åœ¨æ§åˆ¶å›åˆ°æ¥æ”¶è€…æ‰€åœ¨çº¿ç¨‹çš„äº‹ä»¶å¾ªç¯æ—¶è¢«è°ƒç”¨ï¼Œæ§½å‡½æ•°è¿è¡Œäºä¿¡å·æ¥æ”¶è€…æ‰€åœ¨çº¿ç¨‹ã€‚å‘é€ä¿¡å·ä¹‹åï¼Œæ§½å‡½æ•°ä¸ä¼šç«‹åˆ»è¢«è°ƒç”¨ï¼Œç­‰åˆ°æ¥æ”¶è€…çš„å½“å‰å‡½æ•°æ‰§è¡Œå®Œï¼Œè¿›å…¥äº‹ä»¶å¾ªç¯ä¹‹åï¼Œæ§½å‡½æ•°æ‰ä¼šè¢«è°ƒç”¨ã€‚å¤šçº¿ç¨‹ç¯å¢ƒä¸‹ä¸€èˆ¬ç”¨è¿™ä¸ªã€‚
+				4ã€Qt::BlockingQueuedConnectionï¼šæ§½å‡½æ•°çš„è°ƒç”¨æ—¶æœºä¸Qt::QueuedConnectionä¸€è‡´ï¼Œä¸è¿‡å‘é€å®Œä¿¡å·åå‘é€è€…æ‰€åœ¨çº¿ç¨‹ä¼šé˜»å¡ï¼Œç›´åˆ°æ§½å‡½æ•°è¿è¡Œå®Œã€‚æ¥æ”¶è€…å’Œå‘é€è€…ç»å¯¹ä¸èƒ½åœ¨ä¸€ä¸ªçº¿ç¨‹ï¼Œå¦åˆ™ç¨‹åºä¼šæ­»é”ã€‚åœ¨å¤šçº¿ç¨‹é—´éœ€è¦åŒæ­¥çš„åœºåˆå¯èƒ½éœ€è¦è¿™ä¸ªã€‚
+				5ã€Qt::UniqueConnectionï¼šè¿™ä¸ªflagå¯ä»¥é€šè¿‡æŒ‰ä½æˆ–ï¼ˆ|ï¼‰ä¸ä»¥ä¸Šå››ä¸ªç»“åˆåœ¨ä¸€èµ·ä½¿ç”¨ã€‚å½“è¿™ä¸ªflagè®¾ç½®æ—¶ï¼Œå½“æŸä¸ªä¿¡å·å’Œæ§½å·²ç»è¿æ¥æ—¶ï¼Œå†è¿›è¡Œé‡å¤çš„è¿æ¥å°±ä¼šå¤±è´¥ã€‚ä¹Ÿå°±æ˜¯é¿å…äº†é‡å¤è¿æ¥ã€‚
 				*/
 
 				QObject::connect(this, &FirstLication::SendNotify, this, &FirstLication::OnNotify, Qt::BlockingQueuedConnection);
 
-				QObject::connect(this, &FirstLication::PostNotify, m_Service, &Cry::Signal::NetworkEngineService::OnNotify, Qt::AutoConnection);
+				QObject::connect(this, &FirstLication::PostNotify, m_Service, &Cry::Signal::NetworkEngineService::OnNotify);
 			}
 			QMetaObject::connectSlotsByName(this);
 		}
@@ -137,11 +137,11 @@ namespace QWindows
 		}
 		if (Resp.status())
 		{
-			this->setWindowTitle(QString::fromLocal8Bit("¿Í»§¶Ë·µ»ØÕıÈ·"));
+			this->setWindowTitle(QString::fromLocal8Bit("å®¢æˆ·ç«¯è¿”å›æ­£ç¡®"));
 		}
 		else
 		{
-			this->setWindowTitle(QString::fromLocal8Bit("¿Í»§¶Ë·µ»Ø´íÎó"));
+			this->setWindowTitle(QString::fromLocal8Bit("å®¢æˆ·ç«¯è¿”å›é”™è¯¯"));
 		}
 		return false;
 	}
@@ -149,7 +149,7 @@ namespace QWindows
 	{
 		if (Cry::Kernel::Message::InstallWindowsMessageEx(FindWindow("TApplication", "Legend of Mir2"), TEXT("./Library.dll"), TEXT("InterFaceDll")))
 		{
-			DebugMsg("°²×°³É¹¦\n");
+			DebugMsg("å®‰è£…æˆåŠŸ\n");
 		}
 	}
 	void FirstLication::OnUninstall()
@@ -160,20 +160,20 @@ namespace QWindows
 			{
 				if (Cry::Kernel::Message::UninstallWindowsMessageEx())
 				{
-					DebugMsg("Ğ¶ÔØ³É¹¦\n");
+					DebugMsg("å¸è½½æˆåŠŸ\n");
 				}
 			}
 		}
 	}
 	void FirstLication::OnSend()
 	{
-		DebugMsg("½âÃÜ:%s\n", Cry::Text::Xor::Operate("\x58\xFF\x40\xF9\x53\x9D\x25\x85\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x85\x54\x9D\x23\x8D\x40\x8A\x54\x9D\x5F\x82\x40\x85\x50\x9D\x22\xFF\x40\x82\x5F\x9D\x5F\x82\x40\x82\x5F\x9D\x5F\x82\x40\x8D\x50\x00\x00").c_str());
 		SocketData::CmdRequest Req;
-		Req.clear_content();
-		Req.set_content("123321123321");
+		Req.set_content(Cry::Encrypt::Xor::Operate("æ˜¯å¤§å®¶æˆ‘å°±çœ‹äº†é˜¿è¨"));
+		Req.set_timer(1111);
+
 		if (!emit PostNotify(0, Req))
 		{
-			DebugMsg("·¢ËÍÊ§°Ü\n");
+			DebugMsg("å‘é€å¤±è´¥\n");
 		}
 	}
 }

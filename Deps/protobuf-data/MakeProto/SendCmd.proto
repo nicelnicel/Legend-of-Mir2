@@ -4,10 +4,11 @@ package SocketData;
 
 message CmdRequest
 {
-string Content				= 1;
-}
+uint32 Timer		= 1;
+bytes Content		= 2;
+};
 
 message CmdResponse
 {
 bool Status					= 1;
-}
+};

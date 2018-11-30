@@ -15,14 +15,14 @@ namespace Cry
 			/// 修复问题：特征码末尾一个结束符'\0'导致内存搜索失败的情况。
 			/// 优化性能：跳过int3断点。
 			/// 优化视觉：读内存以宏代替，编译器会自动展开。
-			static u32 SearchMemory(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos)
+			/// 个人观点：或者说我没有见过好的代码、但至少这是我见过最聪明的内存搜索方式了。
+			static u32 Execution(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos)
 			{
 				const char*		pbSearchBuffer		= lpszMasks.data();
 				u8*				uResult				= 0;
 				u32				Pos					= 0;
 				ulong32			lpflOldProtect		= 0;
 				ulong32			lpflNewProtect		= 0;
-				bool			bSucess				= false;
 				u32				uProtceSize			= (uEndAddress - uBeginAddress);
 				try
 				{
@@ -30,13 +30,16 @@ namespace Cry
 					{
 						for (u8 * pCur = reinterpret_cast<u8*>(uBeginAddress); pCur < reinterpret_cast<u8*>(uEndAddress); ++pCur)
 						{
-							if (*pCur != 0xCC && *pCur != 0x90 && CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
+							if (*pCur == 0xCC || *pCur == 0x90)
+							{
+								continue;
+							}
+							if (CryVirtualQueryMemory(uint8_t, pbSearchBuffer) == ((u8)'\?') || *pCur == getByte(pbSearchBuffer))
 							{
 								if (!uResult)
 								{
 									uResult = pCur;
 								}
-
 								if (pbSearchBuffer += (CryVirtualQueryMemory(u16, pbSearchBuffer) == ((u16)'\?\?') || CryVirtualQueryMemory(uint8_t, pbSearchBuffer) != ((u8)'\?')) ? 3 : 2; (!*pbSearchBuffer) || (!*(pbSearchBuffer - 1)) || (!*(pbSearchBuffer + 1)))
 								{
 									if (++Pos == uPos)
@@ -69,9 +72,13 @@ namespace Cry
 				}
 				return reinterpret_cast<u32>(uResult);
 			}
-			static u32 SearchMemoryEx(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos = 1)
+			static u32 SearchMemory(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 uPos = 1)
 			{
-				return SearchMemory(uBeginAddress, uEndAddress, Cry::Text::Xor::Operate(lpszMasks), uPos);
+				return Execution(uBeginAddress, uEndAddress, Cry::Encrypt::Xor::Operate(lpszMasks), uPos);
+			}
+			static u32 SearchMemoryEx(const u32 uBeginAddress, const u32 uEndAddress, std::string lpszMasks, u32 Offset = 0, u32 uPos = 1)
+			{
+				return Cry::Encrypt::Xor::Operate(CryVirtualQueryMemory(u32, Execution(uBeginAddress, uEndAddress, Cry::Encrypt::Xor::Operate(lpszMasks), uPos) + Offset));
 			}
 		private:
 			Masks() = default;

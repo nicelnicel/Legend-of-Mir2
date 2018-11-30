@@ -12,7 +12,7 @@ void PutsMasks(std::string lpszString)
 		return;
 	}
 	std::cout << "加密文本：" << lpszString << std::endl;
-	std::string XorDes = Cry::Text::Xor::Operate(lpszString);
+	std::string XorDes = Cry::Encrypt::Xor::Operate(lpszString);
 	std::cout << "加密结果" << std::endl;
 	for (uint32_t i = 0; i < XorDes.size(); ++i)
 	{
@@ -28,6 +28,9 @@ void PutsMasks(std::string lpszString)
 }
 int main()
 {
+
+	uint32_t Crc = Cry::Encrypt::Xor::Operate(Cry::Encrypt::Xor::Operate(123456));
+	return 0;
 	char lpszText[MAX_PATH];
 	while (gets_s(lpszText))
 	{

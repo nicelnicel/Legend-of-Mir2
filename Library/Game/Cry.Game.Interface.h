@@ -19,7 +19,7 @@ namespace Cry
 				Interface(std::shared_ptr<Base::DataBase> & DataBase);
 				~Interface();
 			public:
-				u32 GetPointer(std::string lpszString);
+				u32 GetPointer(lPCString lpszString);
 			private:
 				std::shared_ptr<Base::DataBase>							m_DataBase;
 			protected:
@@ -33,7 +33,9 @@ namespace Cry
 			public:
 				InterfaceEx(std::shared_ptr<Base::DataBase> & DataBase);
 				~InterfaceEx();
-				bool SendCmd(std::string lpszString);
+				bool SendCmd(lPCString lpszString);
+			private:
+				u32 ExceptionFunction(u32 dwExceptionCode);
 			private:
 				std::shared_ptr<Base::DataBase>							m_DataBase;
 				std::shared_ptr<Game::Interface>						m_Interface;
