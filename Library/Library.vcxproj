@@ -96,7 +96,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;LIBRARY_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>.;..\;..\Deps\Public;..\Deps\Public\Utility;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;..\Deps\Detours\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\;..\Deps\Public;..\Deps\Public\Utility;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;..\Deps\Detours\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -134,7 +134,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>.;..\;..\Deps\Public;..\Deps\Public\Utility;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;..\Deps\Detours\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\;..\Deps\Public;..\Deps\Public\Utility;..\Deps\InterProcess;..\Deps\CryFoundation\Include;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\protobuf-3.6.1\src;..\Deps\protobuf-data\src;..\Deps\Detours\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <ControlFlowGuard>Guard</ControlFlowGuard>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -183,6 +183,7 @@
     <ClInclude Include="Game\Cry.Game.Interface.h" />
     <ClInclude Include="Game\Initialize\Cry.Game.Initialize.h" />
     <ClInclude Include="Game\Utility\Cry.Game.Utility.h" />
+    <ClInclude Include="Import\Detour\Cry.DetourEngine.hpp" />
     <ClInclude Include="Import\Memory\Cry.Game.Compare.hpp" />
     <ClInclude Include="InterProcess\Cry.Signal.Client.h" />
   </ItemGroup>

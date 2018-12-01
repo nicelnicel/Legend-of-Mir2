@@ -8,7 +8,7 @@ namespace Cry
 	{
 
 
-		Work::Work(NetworkEngineService * Service, evpp::TCPConnPtr Conn, evpp::EventLoop* Loop)
+		Work::Work(NetworkEngineService * Service, evpp::TCPConnPtr Conn, evpp::EventLoop * Loop)
 		{
 			m_Service = Service;
 			m_Conn = Conn;
@@ -64,7 +64,7 @@ namespace Cry
 			}
 			return true;
 		}
-		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message &pData)
+		bool Work::Send(const uint32_t uMsg, const google::protobuf::Message & pData)
 		{
 			std::lock_guard<std::mutex> Guard(m_Mutex);
 			{
@@ -88,7 +88,7 @@ namespace Cry
 			}
 			return false;
 		}
-		bool Work::OnNotify(const uint32_t uMsg, const google::protobuf::Message *pData)
+		bool Work::OnNotify(const uint32_t uMsg, const google::protobuf::Message * pData)
 		{
 			//DebugMsg("OnNotify -> Ïß³ÌID:%d\n", std::this_thread::get_id());
 			return true;

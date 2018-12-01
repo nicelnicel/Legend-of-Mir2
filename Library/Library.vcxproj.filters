@@ -82,6 +82,9 @@
     <Filter Include="头文件\Exception">
       <UniqueIdentifier>{72bab784-650b-4ad5-a5a5-89afd5f3feb3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Import\Detour">
+      <UniqueIdentifier>{0fad3fc2-c811-4384-88d7-a2fe1335fefe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entrance.h">
@@ -134,6 +137,9 @@
     </ClInclude>
     <ClInclude Include="..\Deps\InterProcess\Exception\Cry.Exception.hpp">
       <Filter>头文件\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="Import\Detour\Cry.DetourEngine.hpp">
+      <Filter>头文件\Import\Detour</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

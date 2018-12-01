@@ -97,7 +97,7 @@
       </ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\;..\Public;$(SolutionDir)Deps;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\Public;$(SolutionDir)Deps;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\Detours\include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <OpenMPSupport>
@@ -137,7 +137,7 @@
       </ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>..\;..\Public;$(SolutionDir)Deps;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\;..\Public;$(SolutionDir)Deps;..\Deps\evpp-0.7.0;..\Deps\glog-0.3.5\src\windows;..\Deps\Libevent-2.1.8\include;..\Deps\Libevent-2.1.8\vsprojects\include;..\Deps\Detours\include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OpenMPSupport>
       </OpenMPSupport>

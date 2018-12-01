@@ -2,8 +2,8 @@
 /* Star */
 #define _Exception_
 #pragma once
-#include <string>
 #include <Global>
+#include <string>
 namespace Cry
 {
 	/// 打造简单的异常处理类慢慢完善

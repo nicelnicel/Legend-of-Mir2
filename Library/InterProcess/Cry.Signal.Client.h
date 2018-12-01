@@ -10,11 +10,11 @@ namespace Cry
 		class Work : public std::enable_shared_from_this<Work>
 		{
 		public:
-			Work(NetworkEngineService * Service, evpp::TCPConnPtr Conn, evpp::EventLoop* Loop);
+			Work(NetworkEngineService * Service, evpp::TCPConnPtr Conn, evpp::EventLoop * Loop);
 			virtual ~Work() = default;
 		public:
 			virtual bool Receive(evpp::Buffer * pData);
-			virtual bool Send(const uint32_t uMsg, const google::protobuf::Message &pData);
+			virtual bool Send(const uint32_t uMsg, const google::protobuf::Message & pData);
 		private:
 			evpp::TCPConnPtr											m_Conn;
 			evpp::EventLoop*											m_Loop;

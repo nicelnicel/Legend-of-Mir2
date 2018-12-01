@@ -23,7 +23,7 @@ namespace Cry
 			virtual bool Receive(evpp::Buffer * pData) /*override*/;
 			virtual bool Send(const uint32_t uMsg, const google::protobuf::Message & pData) /*override*/;
 		public:
-			virtual bool OnNotify(const uint32_t uMsg, const google::protobuf::Message *pData);
+			virtual bool OnNotify(const uint32_t uMsg, const google::protobuf::Message * pData);
 		private:
 			evpp::TCPConnPtr											m_Conn;
 			evpp::EventLoop*											m_Loop;

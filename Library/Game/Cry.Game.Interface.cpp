@@ -3,7 +3,7 @@
 #include <Game/Initialize/Cry.Game.Initialize.h>
 #include <StringXor.h>
 #include <Exception/Cry.Exception.hpp>
-#include <detours.h>
+#include <Import/Detour/Cry.DetourEngine.hpp>
 namespace Cry
 {
 	namespace Game
@@ -32,7 +32,7 @@ namespace Cry
 			}
 			return 0;
 		}
-		InterfaceEx::InterfaceEx(std::shared_ptr<Base::DataBase> & DataBase) : m_Interface(std::make_shared<Game::Interface>(DataBase)), m_DataBase(DataBase)
+		InterfaceEx::InterfaceEx(std::shared_ptr<Base::DataBase> & DataBase) : m_Interface(std::make_shared<Game::Interface>(DataBase)), m_DataBase(DataBase), m_DetourEngine(std::make_unique<DetourEngine>())
 		{
 
 		}
@@ -40,6 +40,7 @@ namespace Cry
 		{
 			m_DataBase = nullptr;
 			m_Interface.reset();
+			m_DetourEngine.reset();
 		}
 		bool InterfaceEx::SendCmd(lPString lpszString)
 		{

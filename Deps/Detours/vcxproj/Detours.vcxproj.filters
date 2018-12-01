@@ -44,10 +44,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\detours.h">
+    <ClInclude Include="..\include\detours.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\detver.h">
+    <ClInclude Include="..\include\detver.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include <string>
 namespace Cry
 {
+	class DetourEngine;
 	namespace Base
 	{
 		class DataBase;
@@ -33,6 +34,7 @@ namespace Cry
 		private:
 			std::shared_ptr<Base::DataBase>							m_DataBase;
 			std::shared_ptr<Game::Interface>						m_Interface;
+			std::shared_ptr<DetourEngine>							m_DetourEngine;
 		protected:
 			InterfaceEx() = default;
 			InterfaceEx(const InterfaceEx &) = default;
